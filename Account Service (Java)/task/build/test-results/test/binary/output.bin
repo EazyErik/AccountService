@@ -1,0 +1,114 @@
+[1;31m
+Start test 1[0m
+[0;34m
+3[0m[0;34m  .   ____          _            __ _ _
+4[0m[0;34m /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+5[0m[0;34m( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+6[0m[0;34m \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+5[0m[0;34m  '  |____| .__|_| |_|_| |_\__, | / / / /
+4[0m[0;34m =========|_|==============|___/=/_/_/_/
+6[0m[0;34m :: Spring Boot ::                (v3.0.2)
+[0m[0;34m
+¶[0m[0;34m2024-04-07T11:27:52.827+02:00  INFO 66515 --- [    Test worker] account.AccountServiceApplication        : Starting AccountServiceApplication using Java 17.0.10 with PID 66515 (started by erikbusch in /Users/erikbusch/IdeaProjects/Account Service (Java)/Account Service (Java)/task)
+∫[0m[0;34m2024-04-07T11:27:52.829+02:00  INFO 66515 --- [    Test worker] account.AccountServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+≤[0m[0;34m2024-04-07T11:27:53.277+02:00  INFO 66515 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Ã[0m[0;34m2024-04-07T11:27:53.302+02:00  INFO 66515 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 1 JPA repository interfaces.
+§[0m[0;34m2024-04-07T11:27:53.583+02:00  INFO 66515 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
+ê[0m[0;34m2024-04-07T11:27:53.589+02:00  INFO 66515 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+¶[0m[0;34m2024-04-07T11:27:53.589+02:00  INFO 66515 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+©[0m[0;34m2024-04-07T11:27:53.636+02:00  INFO 66515 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+µ[0m[0;34m2024-04-07T11:27:53.637+02:00  INFO 66515 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 789 ms
+ë[0m[0;34m2024-04-07T11:27:53.680+02:00  INFO 66515 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+ƒ[0m[0;34m2024-04-07T11:27:53.781+02:00  INFO 66515 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:../service_db user=SA
+ñ[0m[0;34m2024-04-07T11:27:53.782+02:00  INFO 66515 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+–[0m[0;34m2024-04-07T11:27:53.790+02:00  INFO 66515 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../service_db'
+∞[0m[0;34m2024-04-07T11:27:53.859+02:00  INFO 66515 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+®[0m[0;34m2024-04-07T11:27:53.880+02:00  INFO 66515 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+˚[0m[0;34m2024-04-07T11:27:53.964+02:00  WARN 66515 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+∞[0m[0;34m2024-04-07T11:27:54.024+02:00  INFO 66515 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Í[0m[0;34m2024-04-07T11:27:54.415+02:00  INFO 66515 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+∫[0m[0;34m2024-04-07T11:27:54.420+02:00  INFO 66515 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+Æ[0m[0;34m2024-04-07T11:27:54.561+02:00  WARN 66515 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[0m[0;34mhier
+Á[0m[0;34m2024-04-07T11:27:54.613+02:00  INFO 66515 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7f219e84, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@42eaf47f, org.springframework.security.web.context.SecurityContextHolderFilter@149ef64a, org.springframework.security.web.header.HeaderWriterFilter@36f1bd7e, org.springframework.security.web.authentication.logout.LogoutFilter@615bd28b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@37aec9b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e41b65a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a0a0f12, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@312e8eaf, org.springframework.security.web.session.SessionManagementFilter@5fb58f15, org.springframework.security.web.access.ExceptionTranslationFilter@259f0fdb, org.springframework.security.web.access.intercept.AuthorizationFilter@4eee730c]
+¨[0m[0;34m2024-04-07T11:27:54.853+02:00  INFO 66515 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+≥[0m[0;34m2024-04-07T11:27:54.890+02:00  INFO 66515 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
+≈[0m[0;34m2024-04-07T11:27:54.898+02:00  INFO 66515 --- [    Test worker] account.AccountServiceApplication        : Started AccountServiceApplication in 2.231 seconds (process running for 2.738)
+¨[0;34m2024-04-07T11:27:55.061+02:00  INFO 66515 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+ü[0m[0;34m2024-04-07T11:27:55.061+02:00  INFO 66515 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+ó[0m[0;34m2024-04-07T11:27:55.062+02:00  INFO 66515 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+î[0;34m2024-04-07T11:27:55.152+02:00  WARN 66515 --- [io-28852-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+´[0m[0;34m2024-04-07T11:27:55.153+02:00 ERROR 66515 --- [io-28852-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )"; SQL statement:
+m[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
+∏[0m[0;34m2024-04-07T11:27:55.153+02:00  INFO 66515 --- [io-28852-exec-2] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+[0m[0;34mException Handler
+[0m[1;31m
+Start test 2[0m
+î[0;34m2024-04-07T11:27:55.171+02:00  WARN 66515 --- [io-28852-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+´[0m[0;34m2024-04-07T11:27:55.171+02:00 ERROR 66515 --- [io-28852-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )"; SQL statement:
+m[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
+∏[0m[0;34m2024-04-07T11:27:55.172+02:00  INFO 66515 --- [io-28852-exec-3] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+[0m[0;34mException Handler
+[1;31m
+Start test 3[0m
+î[0;34m2024-04-07T11:27:55.178+02:00  WARN 66515 --- [io-28852-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+´[0m[0;34m2024-04-07T11:27:55.178+02:00 ERROR 66515 --- [io-28852-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )"; SQL statement:
+m[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
+∏[0m[0;34m2024-04-07T11:27:55.179+02:00  INFO 66515 --- [io-28852-exec-4] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+[0m[0;34mException Handler
+[1;31m
+Start test 4[0m
+î[0;34m2024-04-07T11:27:55.185+02:00  WARN 66515 --- [io-28852-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+´[0m[0;34m2024-04-07T11:27:55.186+02:00 ERROR 66515 --- [io-28852-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )"; SQL statement:
+m[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
+∏[0m[0;34m2024-04-07T11:27:55.186+02:00  INFO 66515 --- [io-28852-exec-5] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+[0m[0;34mException Handler
+[1;31m
+Start test 5[0m
+î[0;34m2024-04-07T11:27:55.198+02:00  WARN 66515 --- [io-28852-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+±[0m[0;34m2024-04-07T11:27:55.198+02:00 ERROR 66515 --- [io-28852-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 6 */ 'maxmustermann@acme.com' )"; SQL statement:
+m[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
+∏[0m[0;34m2024-04-07T11:27:55.198+02:00  INFO 66515 --- [io-28852-exec-7] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+[0m[0;34mException Handler
+[1;31m
+Start test 6[0m
+î[0;34m2024-04-07T11:27:55.204+02:00  WARN 66515 --- [io-28852-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+±[0m[0;34m2024-04-07T11:27:55.205+02:00 ERROR 66515 --- [io-28852-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 6 */ 'maxmustermann@acme.com' )"; SQL statement:
+m[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
+∏[0m[0;34m2024-04-07T11:27:55.205+02:00  INFO 66515 --- [io-28852-exec-8] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+[0m[0;34mException Handler
+[1;31m
+Start test 7[0m
+î[0;34m2024-04-07T11:27:55.211+02:00  WARN 66515 --- [io-28852-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+±[0m[0;34m2024-04-07T11:27:55.211+02:00 ERROR 66515 --- [io-28852-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 6 */ 'maxmustermann@acme.com' )"; SQL statement:
+m[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
+∏[0m[0;34m2024-04-07T11:27:55.211+02:00  INFO 66515 --- [io-28852-exec-9] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+[0m[0;34mException Handler
+[1;31m
+Start test 8[0m
+[1;31m
+Start test 9[0m
+[1;31m
+Start test 10[0m
+[1;31m
+Start test 11[0m
+[1;31m
+Start test 12[0m
+[1;31m
+Start test 13[0m
+[1;31m
+Start test 14[0m
+[1;31m
+Start test 15[0m
+[1;31m
+Start test 16[0m
+[1;31m
+Start test 17[0m
+[1;31m
+Start test 18[0m
+[0;34mnull
+[0m[0;34mnull
+	[0mnull
+null
+null
+null
