@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 public interface UserSignUpRepository extends CrudRepository<UserSignUp,Long> {
 
 
-    UserSignUp findByEmail(String username);
+    UserSignUp findByEmailIgnoreCase(String email);
 }

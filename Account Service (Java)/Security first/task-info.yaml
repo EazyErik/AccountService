@@ -534,6 +534,622 @@ files:
         };
       }
     learner_created: false
+  - name: src/account/SignUpController.java
+    visible: true
+    text: |
+      package account;
+      
+      import org.springframework.beans.factory.annotation.Autowired;
+      import org.springframework.http.HttpStatus;
+      import org.springframework.http.ResponseEntity;
+      import org.springframework.security.core.annotation.AuthenticationPrincipal;
+      import org.springframework.security.core.userdetails.UserDetails;
+      import org.springframework.web.bind.annotation.*;
+      import org.springframework.web.context.request.WebRequest;
+      
+      import java.time.LocalDateTime;
+      import java.util.HashMap;
+      import java.util.Map;
+      
+      @RestController
+      @RequestMapping("/api")
+      public class SignUpController {
+      
+          @Autowired
+          UserSignUpService userSignUpService;
+      
+          @PostMapping("auth/signup")
+          public ResponseEntity<Response> signup(@RequestBody UserSignUp userSignUp) {
+              if (userSignUp.getName() != null && !userSignUp.getName().isEmpty() &&
+                      userSignUp.getLastname() != null &&
+                      userSignUp.getPassword() != null &&
+                      userSignUp.getEmail() != null &&
+                      !userSignUp.getLastname().isEmpty() &&
+                      userSignUp.getEmail().endsWith("@acme.com") &&
+                      !userSignUp.getPassword().isEmpty()
+              ){
+      
+                   userSignUp.setEmail(userSignUp.getEmail().toLowerCase());
+                  return ResponseEntity.ok(userSignUpService.save(userSignUp));
+              }else{
+                  ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(),HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), "/api/auth/signup");
+                  return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
+              }
+      
+          }
+      
+          @ExceptionHandler(UserExistException.class)
+          public ResponseEntity<CustomErrorMessage> handleCustomException(UserExistException ex, WebRequest request) {
+              CustomErrorMessage body = new CustomErrorMessage(
+                      LocalDateTime.now().toString(),
+                      HttpStatus.BAD_REQUEST.value(),
+                      "Bad Request",
+                      ex.getMessage(),
+                      request.getDescription(false));
+              System.out.println("Exception Handler");
+              return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+          }
+      
+      
+      
+          @GetMapping("/empl/payment")
+          public ResponseEntity<Response> getPayment(@AuthenticationPrincipal UserDetails userDetails){
+              System.out.println("GETMapping");
+              UserSignUp currentUser = userSignUpService.loadUserByEmail(userDetails.getUsername());
+              UserSignUpDTO userSignUpDTO = userSignUpService.transformFrom(currentUser);
+      
+              System.out.println(userDetails);
+              return new ResponseEntity<>(userSignUpDTO,HttpStatus.OK);
+          }
+      }
+    learner_created: true
+  - name: src/account/SecurityConfig.java
+    visible: true
+    text: |
+      package account;
+      
+      import org.springframework.beans.factory.annotation.Autowired;
+      import org.springframework.context.annotation.Bean;
+      import org.springframework.context.annotation.Configuration;
+      import org.springframework.http.HttpMethod;
+      import org.springframework.security.config.Customizer;
+      import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+      import org.springframework.security.config.http.SessionCreationPolicy;
+      import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+      import org.springframework.security.web.SecurityFilterChain;
+      
+      import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
+      
+      @Configuration
+      public class SecurityConfig {
+          @Autowired
+          RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+      
+          @Bean
+          public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+              System.out.println("hier");
+      
+              http
+                      .httpBasic(Customizer.withDefaults())
+                      .exceptionHandling(ex -> ex.authenticationEntryPoint(restAuthenticationEntryPoint)) // Handle auth errors
+                      .csrf(csrf -> csrf.disable()) // For Postman
+                      .headers(headers -> headers.frameOptions().disable()) // For the H2 console
+                      .authorizeHttpRequests(auth -> auth  // manage access
+                                      .requestMatchers(antMatcher(HttpMethod.POST, "/api/auth/signup")).permitAll()
+                                      .requestMatchers(antMatcher(HttpMethod.POST, "/actuator/shutdown")).permitAll()
+                                      .requestMatchers(antMatcher("/h2-console/**")).permitAll()
+                                      .requestMatchers(antMatcher("/api/empl/payment")).permitAll().anyRequest().authenticated()
+      
+      
+      
+                              // other matchers
+                      )
+                      .sessionManagement(sessions -> sessions
+                              .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // no session
+                      );
+      
+              return http.build();
+          }
+      
+      
+      //    @Bean
+      //    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
+      //        System.out.println("UserDetailsService");
+      //        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+      //        manager.createUser(User.withUsername("user")
+      //                .password(encoder.encode("password"))
+      //                .roles("USER")
+      //                .build());
+      //        manager.createUser(User.withUsername("admin")
+      //                .password(encoder.encode("password"))
+      //                .roles("USER", "ADMIN")
+      //                .build());
+      //        return manager;
+      //    }
+      
+      
+          @Bean
+          public BCryptPasswordEncoder passwordEncoder() {
+              return new BCryptPasswordEncoder();
+          }
+      
+      
+      }
+    learner_created: true
+  - name: src/account/ErrorResponse.java
+    visible: true
+    text: |
+      package account;
+      
+      import java.time.LocalDateTime;
+      
+      public class ErrorResponse implements Response {
+          private LocalDateTime timestamp;
+          private int status;
+          private String error;
+          private String path;
+      
+          public ErrorResponse(LocalDateTime timestamp, int status, String error, String path) {
+              this.timestamp = timestamp;
+              this.status = status;
+              this.error = error;
+              this.path = path;
+          }
+      
+          public ErrorResponse(){}
+      
+          public LocalDateTime getTimestamp() {
+              return timestamp;
+          }
+      
+          public void setTimestamp(LocalDateTime timestamp) {
+              this.timestamp = timestamp;
+          }
+      
+          public int getStatus() {
+              return status;
+          }
+      
+          public void setStatus(int status) {
+              this.status = status;
+          }
+      
+          public String getError() {
+              return error;
+          }
+      
+          public void setError(String error) {
+              this.error = error;
+          }
+      
+          public String getPath() {
+              return path;
+          }
+      
+          public void setPath(String path) {
+              this.path = path;
+          }
+      }
+    learner_created: true
+  - name: src/account/CustomException.java
+    visible: true
+    text: |
+      package account;
+      
+      public class UserExistException extends RuntimeException {
+      
+          public UserExistException(String message){
+              super(message);
+          }
+      
+      }
+    learner_created: true
+  - name: src/account/UserDetailsImpl.java
+    visible: true
+    text: |
+      package account;
+      
+      import org.springframework.beans.factory.annotation.Autowired;
+      import org.springframework.security.core.userdetails.UserDetails;
+      import org.springframework.security.core.userdetails.UserDetailsService;
+      import org.springframework.security.core.userdetails.UsernameNotFoundException;
+      import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+      import org.springframework.stereotype.Component;
+      @Component
+      public class UserDetailsImpl implements UserDetailsService {
+      
+          @Autowired
+          UserSignUpRepository userSignUpRepository;
+      
+          @Autowired
+          BCryptPasswordEncoder encoder;
+      
+          public UserDetailsImpl(){
+              System.out.println("Constructor UserDetailsImpl");
+          }
+          @Override
+          public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+              System.out.println("loadUserByEmail");
+              UserSignUp user = userSignUpRepository.findByEmailIgnoreCase(email);
+              System.out.println("user:" + user);
+              if(user == null){
+                  throw new UsernameNotFoundException("No user with this email: " + email);
+              }
+              System.out.println("password: " + user.getPassword());
+              System.out.println("Encoded password: " + encoder.encode(user.getPassword()));
+      
+              return org.springframework.security.core.userdetails.User.builder()
+                      .username(user.getEmail())
+                      .password(user.getPassword())
+                      .roles("USER")
+                      .build();
+          }
+      }
+    learner_created: true
+  - name: src/account/UserSignUp.java
+    visible: true
+    text: |
+      package account;
+      
+      
+      import jakarta.persistence.*;
+      
+      
+      @Entity
+      public class UserSignUp {
+          @Id
+          @GeneratedValue(strategy = GenerationType.AUTO)
+          private Long id;
+      
+          private String name;
+          private String lastname;
+          @Column(unique = true)
+          private String email;
+          private String password;
+      
+          public UserSignUp(Long id, String name, String lastname, String email, String password) {
+              this.name = name;
+              this.lastname = lastname;
+              this.email = email;
+              this.password = password;
+              this.id = id;
+          }
+      
+          public UserSignUp() {
+          }
+      
+          public Long getId() {
+              return id;
+          }
+      
+          public String getName() {
+              return name;
+          }
+      
+          public void setName(String name) {
+              this.name = name;
+          }
+      
+          public String getLastname() {
+              return lastname;
+          }
+      
+          public void setLastname(String lastname) {
+              this.lastname = lastname;
+          }
+      
+          public String getEmail() {
+              return email;
+          }
+      
+          public void setEmail(String email) {
+              this.email = email;
+          }
+      
+          public String getPassword() {
+              return password;
+          }
+      
+          public void setPassword(String password) {
+              this.password = password;
+          }
+      }
+    learner_created: true
+  - name: src/account/UserSignUpDTO.java
+    visible: true
+    text: |
+      package account;
+      
+      public class UserSignUpDTO implements Response {
+      
+          private Long id;
+          private String name;
+          private String lastname;
+          private String email;
+      
+          public UserSignUpDTO(String name, String lastname, String email,Long id) {
+              this.name = name;
+              this.lastname = lastname;
+              this.email = email;
+              this.id = id;
+      
+          }
+      
+          public UserSignUpDTO() {
+          }
+      
+          public Long getId() {
+              return id;
+          }
+      
+          public String getName() {
+              return name;
+          }
+      
+          public void setName(String name) {
+              this.name = name;
+          }
+      
+          public String getLastname() {
+              return lastname;
+          }
+      
+          public void setLastname(String lastname) {
+              this.lastname = lastname;
+          }
+      
+          public String getEmail() {
+              return email;
+          }
+      
+          public void setEmail(String email) {
+              this.email = email;
+          }
+      }
+    learner_created: true
+  - name: src/account/UserSignUpRepository.java
+    visible: true
+    text: |
+      package account;
+      
+      import org.springframework.data.repository.CrudRepository;
+      import org.springframework.stereotype.Repository;
+      
+      @Repository
+      public interface UserSignUpRepository extends CrudRepository<UserSignUp,Long> {
+      
+      
+          UserSignUp findByEmailIgnoreCase(String email);
+      }
+    learner_created: true
+  - name: src/account/UserSignUpDetailsService.java
+    visible: true
+    text: |
+      //package account;
+      //
+      //import org.springframework.beans.factory.annotation.Autowired;
+      //import org.springframework.security.core.GrantedAuthority;
+      //import org.springframework.security.core.authority.SimpleGrantedAuthority;
+      //import org.springframework.security.core.userdetails.UserDetails;
+      //import org.springframework.security.core.userdetails.UserDetailsService;
+      //import org.springframework.security.core.userdetails.UsernameNotFoundException;
+      //import org.springframework.stereotype.Service;
+      //
+      //import java.util.Collections;
+      //
+      //@Service
+      //public class UserSignUpDetailsService implements UserDetailsService {
+      //
+      //    @Autowired
+      //    private UserSignUpRepository userSignUpRepository;
+      //
+      //    @Override
+      //    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+      //        UserSignUp user = userSignUpRepository.findByEmail(email);
+      //        if (user == null) {
+      //            throw new UsernameNotFoundException(email);
+      //        }
+      //        GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
+      //        return new org.springframework.security.core.userdetails.User(
+      //                user.getName(),
+      //                user.getPassword(),
+      //                Collections.singleton(authority)
+      //        );
+      //    }
+      //}
+    learner_created: true
+  - name: src/account/CustomAuthenticationProvider.java
+    visible: true
+    text: |
+      package account;
+      
+      import org.springframework.beans.factory.annotation.Autowired;
+      import org.springframework.security.authentication.AuthenticationProvider;
+      import org.springframework.security.authentication.BadCredentialsException;
+      import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+      import org.springframework.security.core.Authentication;
+      import org.springframework.security.core.AuthenticationException;
+      import org.springframework.security.core.userdetails.UserDetails;
+      import org.springframework.stereotype.Component;
+      
+      
+      public class CustomAuthenticationProvider implements AuthenticationProvider {
+      
+          @Autowired
+          UserSignUpService userSignUpService;
+          @Override
+          public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+              String email = authentication.getName();
+              String password = authentication.getCredentials().toString();
+              UserSignUp userSignUp = userSignUpService.loadUserByEmail(email);
+             // UserDetails userDetails = userSignUpService.loadUserByEmail(email);
+               if(userSignUp == null){
+                   throw new BadCredentialsException("Email not exist!");
+               }
+              if (!password.equals(userSignUp.getPassword())) {
+                  throw new BadCredentialsException("Incorrect password");
+              }
+      
+              return new UsernamePasswordAuthenticationToken(email, password, null);
+      
+          }
+      
+          @Override
+          public boolean supports(Class<?> authentication) {
+              return false;
+          }
+      }
+    learner_created: true
+  - name: src/account/UserSignUpService.java
+    visible: true
+    text: |
+      package account;
+      
+      import org.springframework.beans.factory.annotation.Autowired;
+      import org.springframework.dao.DataIntegrityViolationException;
+      import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+      import org.springframework.stereotype.Service;
+      
+      @Service
+      public class UserSignUpService {
+          @Autowired
+          UserSignUpRepository userSignUpRepository;
+      
+          @Autowired
+          BCryptPasswordEncoder encoder;
+      
+          public UserSignUpDTO save(UserSignUp userSignUp){
+              UserSignUp savedUser;
+              try {
+                  System.out.println("password: " + userSignUp.getPassword());
+                  System.out.println("Encoded password: " + encoder.encode(userSignUp.getPassword()));
+                  userSignUp.setPassword(encoder.encode(userSignUp.getPassword()));
+                  savedUser = userSignUpRepository.save(userSignUp);
+              } catch (DataIntegrityViolationException e) {
+      
+                  throw new UserExistException("User exist!");
+              }
+      
+      
+              return new UserSignUpDTO(
+                      savedUser.getName(), savedUser.getLastname(),
+                      savedUser.getEmail(),savedUser.getId());
+          }
+      
+          public UserSignUp loadUserByEmail(String email){
+              UserSignUp user = userSignUpRepository.findByEmailIgnoreCase(email);
+              return user;
+          }
+      
+          public UserSignUpDTO transformFrom(UserSignUp user){
+              UserSignUpDTO userSignUpDTO = new UserSignUpDTO(user.getName(), user.getLastname(),user.getEmail(), user.getId());
+              return userSignUpDTO;
+          }
+      
+      }
+    learner_created: true
+  - name: src/account/CustomErrorMessage.java
+    visible: true
+    text: |
+      package account;
+      
+      import java.time.LocalDateTime;
+      
+      public class CustomErrorMessage {
+      
+          private String timestamp;
+          private int status;
+          private String error;
+          private String message;
+          private String path;
+      
+          public CustomErrorMessage() {
+          }
+      
+          public CustomErrorMessage(String timestamp, int status, String error, String message, String path) {
+              this.timestamp = timestamp;
+              this.status = status;
+              this.error = error;
+              this.message = message;
+              this.path = path;
+          }
+      
+      
+      
+          public String getTimestamp() {
+              return timestamp;
+          }
+      
+          public void setTimestamp(String timestamp) {
+              this.timestamp = timestamp;
+          }
+      
+          public int getStatus() {
+              return status;
+          }
+      
+          public void setStatus(int status) {
+              this.status = status;
+          }
+      
+          public String getError() {
+              return error;
+          }
+      
+          public void setError(String error) {
+              this.error = error;
+          }
+      
+          public String getMessage() {
+              return message;
+          }
+      
+          public void setMessage(String message) {
+              this.message = message;
+          }
+      
+          public String getPath() {
+              return path;
+          }
+      
+          public void setPath(String path) {
+              this.path = path;
+          }
+      }
+    learner_created: true
+  - name: src/account/Response.java
+    visible: true
+    text: |
+      package account;
+      
+      public interface Response {
+      }
+    learner_created: true
+  - name: src/account/RestAuthenticationEntryPoint.java
+    visible: true
+    text: |
+      package account;
+      
+      import jakarta.servlet.ServletException;
+      import jakarta.servlet.http.HttpServletRequest;
+      import jakarta.servlet.http.HttpServletResponse;
+      import org.springframework.context.annotation.Bean;
+      import org.springframework.security.core.AuthenticationException;
+      import org.springframework.security.web.AuthenticationEntryPoint;
+      import org.springframework.stereotype.Component;
+      
+      import java.io.IOException;
+      @Component
+      public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
+      
+          @Override
+          public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws ServletException, IOException {
+      
+      
+              response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
+          }
+      }
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/16603#comment
 status: Unchecked
 record: -1

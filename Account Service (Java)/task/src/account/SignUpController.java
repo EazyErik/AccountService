@@ -3,12 +3,12 @@ package account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -25,20 +25,27 @@ public class SignUpController {
                 userSignUp.getEmail() != null &&
                 !userSignUp.getLastname().isEmpty() &&
                 userSignUp.getEmail().endsWith("@acme.com") &&
-                !userSignUp.getPassword().isEmpty()
-        ){
+                !userSignUp.getPassword().isEmpty()) {
+            if (userSignUp.getPassword().length() < 12) {
+                throw new CustomException("Password length must be 12 chars minimum!");
 
-             userSignUp.setEmail(userSignUp.getEmail().toLowerCase());
-            return ResponseEntity.ok(userSignUpService.save(userSignUp));
-        }else{
-            ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(),HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), "/api/auth/signup");
-            return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
+            } else {
+                if(userSignUpService.isBreached(userSignUp.getPassword())){
+                    throw new CustomException("The password is in the hacker's database!");
+                }
+                userSignUp.setEmail(userSignUp.getEmail().toLowerCase());
+                return ResponseEntity.ok(userSignUpService.save(userSignUp));
+            }
+
+        } else {
+            ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), "/api/auth/signup");
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
         }
 
     }
 
-    @ExceptionHandler(UserExistException.class)
-    public ResponseEntity<CustomErrorMessage> handleCustomException(UserExistException ex, WebRequest request) {
+    @ExceptionHandler(CustomException.class)
+    public ResponseEntity<CustomErrorMessage> handleCustomException(CustomException ex, WebRequest request) {
         CustomErrorMessage body = new CustomErrorMessage(
                 LocalDateTime.now().toString(),
                 HttpStatus.BAD_REQUEST.value(),
@@ -50,10 +57,13 @@ public class SignUpController {
     }
 
 
-
     @GetMapping("/empl/payment")
-    public ResponseEntity<Response> getPayment(){
+    public ResponseEntity<Response> getPayment(@AuthenticationPrincipal UserDetails userDetails) {
         System.out.println("GETMapping");
-        return new ResponseEntity<>(HttpStatus.OK);
+        UserSignUp currentUser = userSignUpService.loadUserByEmail(userDetails.getUsername());
+        UserSignUpDTO userSignUpDTO = userSignUpService.transformFrom(currentUser);
+
+        System.out.println(userDetails);
+        return new ResponseEntity<>(userSignUpDTO, HttpStatus.OK);
     }
 }

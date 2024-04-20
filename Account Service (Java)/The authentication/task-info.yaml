@@ -609,17 +609,9 @@ files:
   - name: src/account/UserDetailsImpl.java
     visible: true
     learner_created: true
-  - name: src/account/MySecurityConfig.java
-    visible: true
-    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/16602#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #18
-
-    Get /api/empl/payment should respond with status code 200, responded: 401
-    User must login!
-    Authentication with johndoe@acme.com / secret
-  time: "Sun, 07 Apr 2024 09:27:55 UTC"
+  message: Congratulations!
+  time: "Sat, 20 Apr 2024 11:23:26 UTC"
 record: 2
