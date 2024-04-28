@@ -1,8 +1,8 @@
 package account.service;
 
-import account.controller.Response;
 
-public class UserSignUpDTO implements Response {
+
+public class UserSignUpDTO{
 
     private Long id;
     private String name;

@@ -46,10 +46,13 @@ files:
   - name: src/account/config/RestAuthenticationEntryPoint.java
     visible: true
     learner_created: true
-  - name: src/account/service/ErrorResponse.java
+  - name: src/account/service/CustomErrorMessage.java
     visible: true
     learner_created: true
-  - name: src/account/service/CustomErrorMessage.java
+  - name: src/account/service/PasswordDTO.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/SuccesfullPasswordChangeDTO.java
     visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/16603#comment

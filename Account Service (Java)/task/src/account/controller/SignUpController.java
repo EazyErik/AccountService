@@ -1,11 +1,9 @@
 package account.controller;
 
 //import account.service.ErrorResponse;
+
 import account.data.UserSignUp;
-import account.service.CustomErrorMessage;
-import account.service.CustomException;
-import account.service.UserSignUpDTO;
-import account.service.UserSignUpService;
+import account.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,52 +22,72 @@ public class SignUpController {
     UserSignUpService userSignUpService;
 
     @PostMapping("auth/signup")
-    public ResponseEntity<Response> signup(@RequestBody UserSignUp userSignUp) {
-        if (userSignUp.getName() != null && !userSignUp.getName().isEmpty() &&
-                userSignUp.getLastname() != null &&
-                userSignUp.getPassword() != null &&
-                userSignUp.getEmail() != null &&
-                !userSignUp.getLastname().isEmpty() &&
-                userSignUp.getEmail().endsWith("@acme.com") &&
-                !userSignUp.getPassword().isEmpty()) {
-            if (userSignUp.getPassword().length() < 12) {
-                throw new CustomException("Password length must be 12 chars minimum!");
+    public ResponseEntity<UserSignUpDTO> signup(@RequestBody UserSignUp userSignUp) {
+        checkValidUser(userSignUp);
+        validatePasswordSecurity(userSignUp.getPassword());
+        userSignUp.setEmail(userSignUp.getEmail().toLowerCase());
+        return ResponseEntity.ok(userSignUpService.save(userSignUp));
 
-            } else {
-                if(userSignUpService.isBreached(userSignUp.getPassword())){
-                    throw new CustomException("The password is in the hacker's database!");
-                }
-                userSignUp.setEmail(userSignUp.getEmail().toLowerCase());
-                return ResponseEntity.ok(userSignUpService.save(userSignUp));
-            }
 
-        } else {
+    }
 
-            throw new CustomException("");
+
+
+private void checkValidUser(UserSignUp userSignUp) {
+    if (
+            userSignUp.getName() != null && !userSignUp.getName().isEmpty() &&
+                    userSignUp.getLastname() != null &&
+                    userSignUp.getPassword() != null &&
+                    userSignUp.getEmail() != null &&
+                    !userSignUp.getLastname().isEmpty() &&
+                    userSignUp.getEmail().endsWith("@acme.com") &&
+                    !userSignUp.getPassword().isEmpty()) {
+
+    }
+    throw new CustomException("");
+}
+
+private void validatePasswordSecurity(String password) {
+    if (password.length() < 12) {
+        throw new CustomException("Password length must be 12 chars minimum!");
+
+    } else {
+        if (userSignUpService.isBreached(password)) {
+            throw new CustomException("The password is in the hacker's database!");
         }
-
     }
+}
 
-    @ExceptionHandler(CustomException.class)
-    public ResponseEntity<CustomErrorMessage> handleCustomException(CustomException ex, WebRequest request) {
-        CustomErrorMessage body = new CustomErrorMessage(
-                LocalDateTime.now().toString(),
-                HttpStatus.BAD_REQUEST.value(),
-                "Bad Request",
-                ex.getMessage(),
-                request.getDescription(false));
-        System.out.println("Exception Handler");
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-    }
+@PostMapping("auth/changepass")
+public ResponseEntity<SuccesfullPasswordChangeDTO> changePassword(@AuthenticationPrincipal UserDetails userDetails, PasswordDTO passwordDTO) {
+    UserSignUp currentUser = userSignUpService.loadUserByEmail(userDetails.getUsername());
+    currentUser.setPassword(passwordDTO.getNew_password());
+    validatePasswordSecurity(currentUser.getPassword());
+    userSignUpService.save(currentUser);
+    return ResponseEntity.ok(new SuccesfullPasswordChangeDTO(currentUser.getEmail(), "The password has been updated successfully"));
+
+}
+
+@ExceptionHandler(CustomException.class)
+public ResponseEntity<CustomErrorMessage> handleCustomException(CustomException ex, WebRequest request) {
+    CustomErrorMessage body = new CustomErrorMessage(
+            LocalDateTime.now().toString(),
+            HttpStatus.BAD_REQUEST.value(),
+            "Bad Request",
+            ex.getMessage(),
+            request.getDescription(false));
+    System.out.println("Exception Handler");
+    return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+}
 
 
-    @GetMapping("/empl/payment")
-    public ResponseEntity<Response> getPayment(@AuthenticationPrincipal UserDetails userDetails) {
-        System.out.println("GETMapping");
-        UserSignUp currentUser = userSignUpService.loadUserByEmail(userDetails.getUsername());
-        UserSignUpDTO userSignUpDTO = userSignUpService.transformFrom(currentUser);
+@GetMapping("/empl/payment")
+public ResponseEntity<UserSignUpDTO> getPayment(@AuthenticationPrincipal UserDetails userDetails) {
+    System.out.println("GETMapping");
+    UserSignUp currentUser = userSignUpService.loadUserByEmail(userDetails.getUsername());
+    UserSignUpDTO userSignUpDTO = userSignUpService.transformFrom(currentUser);
 
-        System.out.println(userDetails);
-        return new ResponseEntity<>(userSignUpDTO, HttpStatus.OK);
-    }
+    System.out.println(userDetails);
+    return new ResponseEntity<>(userSignUpDTO, HttpStatus.OK);
+}
 }
