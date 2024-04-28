@@ -7,7 +7,7 @@
     <content url="file://$MODULE_DIR$/../../../../../../Account Service (Java)/task/build/test-results/test">
       <sourceFolder url="file://$MODULE_DIR$/../../../../../../Account Service (Java)/task/build/test-results/test" isTestSource="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="jbr-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Account_Service_(Java).Account_Service__Java_-task-build-test-results.main" />
     <orderEntry type="module" module-name="Account_Service_(Java).util.main" />

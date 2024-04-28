@@ -13,8 +13,8 @@ Start test 1?[0m
 ?[0m?[0;34m =========|_|==============|___/=/_/_/_/
 ?[0m?[0;34m :: Spring Boot ::                (v3.0.2)
 ?[0m?[0;34m
-?[0m?[0;34m2024-04-20T13:23:10.178+02:00  INFO 65244 --- [    Test worker] account.AccountServiceApplication        : Starting AccountServiceApplication using Java 17.0.10 with PID 65244 (started by erikbusch in /Users/erikbusch/IdeaProjects/Account Service (Java)/Account Service (Java)/task)
-?[0m?[0;34m2024-04-20T13:23:10.181+02:00  INFO 65244 --- [    Test worker] account.AccountServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+?[0m?[0;34m2024-04-20T13:23:10.178+02:00  INFO 65244 --- [    Test worker] account.main.AccountServiceApplication        : Starting AccountServiceApplication using Java 17.0.10 with PID 65244 (started by erikbusch in /Users/erikbusch/IdeaProjects/Account Service (Java)/Account Service (Java)/task)
+?[0m?[0;34m2024-04-20T13:23:10.181+02:00  INFO 65244 --- [    Test worker] account.main.AccountServiceApplication        : No active profile set, falling back to 1 default profile: "default"
 ?[0m?[0;34m2024-04-20T13:23:10.623+02:00  INFO 65244 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 ?[0m?[0;34m2024-04-20T13:23:10.648+02:00  INFO 65244 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 1 JPA repository interfaces.
 ?[0m?[0;34m2024-04-20T13:23:10.929+02:00  INFO 65244 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
@@ -38,7 +38,7 @@ Start test 1?[0m
 ?[0m?[0;34m2024-04-20T13:23:11.971+02:00  INFO 65244 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@cc3fc5c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2aac60b, org.springframework.security.web.context.SecurityContextHolderFilter@665c79a2, org.springframework.security.web.header.HeaderWriterFilter@22bbbe6, org.springframework.security.web.authentication.logout.LogoutFilter@333e01c6, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3f523dae, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e895acb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@48064a5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@173602c0, org.springframework.security.web.session.SessionManagementFilter@54c1878b, org.springframework.security.web.access.ExceptionTranslationFilter@68e6856c, org.springframework.security.web.access.intercept.AuthorizationFilter@1043c493]
 ?[0m?[0;34m2024-04-20T13:23:12.209+02:00  INFO 65244 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
 ?[0m?[0;34m2024-04-20T13:23:12.246+02:00  INFO 65244 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
-?[0m?[0;34m2024-04-20T13:23:12.255+02:00  INFO 65244 --- [    Test worker] account.AccountServiceApplication        : Started AccountServiceApplication in 2.24 seconds (process running for 2.734)
+?[0m?[0;34m2024-04-20T13:23:12.255+02:00  INFO 65244 --- [    Test worker] account.main.AccountServiceApplication        : Started AccountServiceApplication in 2.24 seconds (process running for 2.734)
 ?[0;34m2024-04-20T13:23:12.408+02:00  INFO 65244 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 ?[0m?[0;34m2024-04-20T13:23:12.408+02:00  INFO 65244 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 ?[0m?[0;34m2024-04-20T13:23:12.409+02:00  INFO 65244 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
@@ -130,7 +130,7 @@ Start test 17?[0m
 ?[1;31m
 Start test 18?[0m
 ?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.UserSignUp@26e732db
+?[0m?[0;34muser:account.data.UserSignUp@26e732db
 ?[0m?[0;34mpassword: $2a$10$LajBtttIyK2SrFCRWJHZG.4xsvR/2hquSQUoz5rbPh3kNK0Bo/cY.
 ?[0m?[0;34mEncoded password: $2a$10$nSsbUBfdPie5zFgEGa9uF.U5pSfR2Ynj2U07CPEJ1igm9mCm/o/D2
 ?[0m?[0;34mGETMapping
@@ -138,7 +138,7 @@ Start test 18?[0m
 ?[1;31m
 Start test 19?[0m
 ?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.UserSignUp@42486d36
+?[0m?[0;34muser:account.data.UserSignUp@42486d36
 ?[0m?[0;34mpassword: $2a$10$LajBtttIyK2SrFCRWJHZG.4xsvR/2hquSQUoz5rbPh3kNK0Bo/cY.
 ?[0m?[0;34mEncoded password: $2a$10$ZBCYSapfn5AyCLyPoZM6p.Wf8oCgrb/.9Bo7xj.AD9T.NHZK2tPna
 ?[0m?[0;34mGETMapping
@@ -146,7 +146,7 @@ Start test 19?[0m
 ?[1;31m
 Start test 20?[0m
 ?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.UserSignUp@7a0fc164
+?[0m?[0;34muser:account.data.UserSignUp@7a0fc164
 ?[0m?[0;34mpassword: $2a$10$PywzCElgHJ6kDUUunPugzu0i5DQ7Tq5wn2TGz2mUmw.9nafy6C0x.
 ?[0m?[0;34mEncoded password: $2a$10$uMXATkpbaIR6OHwXTBdlwO4ZxzXm0wr6AaFE.hn8V3NOHH3v0YicC
 ?[0m?[0;34mGETMapping
@@ -154,7 +154,7 @@ Start test 20?[0m
 ?[1;31m
 Start test 21?[0m
 ?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.UserSignUp@5c6261ce
+?[0m?[0;34muser:account.data.UserSignUp@5c6261ce
 ?[0m?[0;34mpassword: $2a$10$PywzCElgHJ6kDUUunPugzu0i5DQ7Tq5wn2TGz2mUmw.9nafy6C0x.
 ?[0m?[0;34mEncoded password: $2a$10$1WCptRkCvNCXMRYn7giRH.0eV9FpdgBY/jPbUC5li/tQ.WwvJy/mq
 ?[0m?[0;34mGETMapping
@@ -162,13 +162,13 @@ Start test 21?[0m
 ?[1;31m
 Start test 22?[0m
 ?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.UserSignUp@1127073a
+?[0m?[0;34muser:account.data.UserSignUp@1127073a
 ?[0m?[0;34mpassword: $2a$10$LajBtttIyK2SrFCRWJHZG.4xsvR/2hquSQUoz5rbPh3kNK0Bo/cY.
 ?[0m?[0;34mEncoded password: $2a$10$K7tooIE3/Abjj8Xs17DVgubAHxYlhukPS/tOAiDA96vfZvAJJdsCq
 ?[1;31m
 Start test 23?[0m
 ?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.UserSignUp@fe12b57
+?[0m?[0;34muser:account.data.UserSignUp@fe12b57
 ?[0m?[0;34mpassword: $2a$10$LajBtttIyK2SrFCRWJHZG.4xsvR/2hquSQUoz5rbPh3kNK0Bo/cY.
 ?[0m?[0;34mEncoded password: $2a$10$K0R1CHINlS/P2olP.I3GGe00GIW3Z.Z/o5jQQfZujEDUTlVpUvxW2
 ?[1;31m
@@ -178,7 +178,7 @@ Start test 24?[0m
 ?[1;31m
 Start test 25?[0m
 ?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.UserSignUp@6309b552
+?[0m?[0;34muser:account.data.UserSignUp@6309b552
 ?[0m?[0;34mpassword: $2a$10$PywzCElgHJ6kDUUunPugzu0i5DQ7Tq5wn2TGz2mUmw.9nafy6C0x.
 ?[0m?[0;34mEncoded password: $2a$10$i/EuTHiLBQgGyWMZUhbxo.RIQqK/2ZBzxYM3mJ5UwA7YdZaQ/Tuv6
 ?[1;31m
@@ -191,7 +191,7 @@ Start test 27?[0m
 ?[0m?[0;34m2024-04-20T13:23:15.358+02:00 ERROR 65244 --- [io-28852-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.userdetails.UserDetails.getUsername()" because "userDetails" is null] with root cause
 ?[0m?[0;34m
 ?[0m?[0;34mjava.lang.NullPointerException: Cannot invoke "org.springframework.security.core.userdetails.UserDetails.getUsername()" because "userDetails" is null
-?[0m?[0;34m	at account.SignUpController.getPayment(SignUpController.java:59) ~[main/:na]
+?[0m?[0;34m	at account.controller.SignUpController.getPayment(SignUpController.java:59) ~[main/:na]
 ?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 ?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 ?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -402,8 +402,8 @@ Start test 28?[0m
 ?[0m?[0;34m =========|_|==============|___/=/_/_/_/
 ?[0m?[0;34m :: Spring Boot ::                (v3.0.2)
 ?[0m?[0;34m
-?[0m?[0;34m2024-04-20T13:23:25.724+02:00  INFO 65244 --- [    Test worker] account.AccountServiceApplication        : Starting AccountServiceApplication using Java 17.0.10 with PID 65244 (started by erikbusch in /Users/erikbusch/IdeaProjects/Account Service (Java)/Account Service (Java)/task)
-?[0m?[0;34m2024-04-20T13:23:25.724+02:00  INFO 65244 --- [    Test worker] account.AccountServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+?[0m?[0;34m2024-04-20T13:23:25.724+02:00  INFO 65244 --- [    Test worker] account.main.AccountServiceApplication        : Starting AccountServiceApplication using Java 17.0.10 with PID 65244 (started by erikbusch in /Users/erikbusch/IdeaProjects/Account Service (Java)/Account Service (Java)/task)
+?[0m?[0;34m2024-04-20T13:23:25.724+02:00  INFO 65244 --- [    Test worker] account.main.AccountServiceApplication        : No active profile set, falling back to 1 default profile: "default"
 ?[0m?[0;34m2024-04-20T13:23:25.838+02:00  INFO 65244 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 ?[0m?[0;34m2024-04-20T13:23:25.842+02:00  INFO 65244 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 1 JPA repository interfaces.
 ?[0m?[0;34m2024-04-20T13:23:25.880+02:00  INFO 65244 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
@@ -426,14 +426,14 @@ Start test 28?[0m
 ?[0m?[0;34m2024-04-20T13:23:25.975+02:00  INFO 65244 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5dbd7f00, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3e9053b3, org.springframework.security.web.context.SecurityContextHolderFilter@271bbb75, org.springframework.security.web.header.HeaderWriterFilter@6aa16117, org.springframework.security.web.authentication.logout.LogoutFilter@53e7cc08, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4b45016d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12515d64, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@73193fe0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@138c2ba, org.springframework.security.web.session.SessionManagementFilter@5771adf3, org.springframework.security.web.access.ExceptionTranslationFilter@16d4757f, org.springframework.security.web.access.intercept.AuthorizationFilter@3057728e]
 ?[0m?[0;34m2024-04-20T13:23:26.037+02:00  INFO 65244 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
 ?[0m?[0;34m2024-04-20T13:23:26.047+02:00  INFO 65244 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
-?[0m?[0;34m2024-04-20T13:23:26.051+02:00  INFO 65244 --- [    Test worker] account.AccountServiceApplication        : Started AccountServiceApplication in 0.345 seconds (process running for 16.53)
+?[0m?[0;34m2024-04-20T13:23:26.051+02:00  INFO 65244 --- [    Test worker] account.main.AccountServiceApplication        : Started AccountServiceApplication in 0.345 seconds (process running for 16.53)
 ?[0m?[1;31m
 Start test 29?[0m
 ?[0;34m2024-04-20T13:23:26.056+02:00  INFO 65244 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 ?[0m?[0;34m2024-04-20T13:23:26.056+02:00  INFO 65244 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 ?[0m?[0;34m2024-04-20T13:23:26.057+02:00  INFO 65244 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 ?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.UserSignUp@331e2f5c
+?[0m?[0;34muser:account.data.UserSignUp@331e2f5c
 ?[0m?[0;34mpassword: $2a$10$LajBtttIyK2SrFCRWJHZG.4xsvR/2hquSQUoz5rbPh3kNK0Bo/cY.
 ?[0m?[0;34mEncoded password: $2a$10$A/5hHJ0B/HwJgYodSYw/ner9z0bpWszzYxIGpxl4MnwQv2.dKIWU2
 ?[0m?[0;34mGETMapping
