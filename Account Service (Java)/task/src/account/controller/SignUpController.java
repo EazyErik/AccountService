@@ -44,8 +44,7 @@ public class SignUpController {
             }
 
         } else {
-//            ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), "/api/auth/signup");
-//            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+
             throw new CustomException("");
         }
 
