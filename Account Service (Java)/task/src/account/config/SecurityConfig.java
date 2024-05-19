@@ -7,7 +7,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
@@ -42,28 +42,5 @@ public class SecurityConfig {
 
         return http.build();
     }
-
-
-//    @Bean
-//    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-//        System.out.println("UserDetailsService");
-//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-//        manager.createUser(User.withUsername("user")
-//                .password(encoder.encode("password"))
-//                .roles("USER")
-//                .build());
-//        manager.createUser(User.withUsername("admin")
-//                .password(encoder.encode("password"))
-//                .roles("USER", "ADMIN")
-//                .build());
-//        return manager;
-//    }
-
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
 
 }

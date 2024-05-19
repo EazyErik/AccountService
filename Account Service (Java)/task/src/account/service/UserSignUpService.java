@@ -1,5 +1,6 @@
 package account.service;
 
+import account.config.PasswordEncoder;
 import account.data.UserSignUp;
 import account.repository.UserSignUpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +20,18 @@ public class UserSignUpService {
             "PasswordForMay", "PasswordForJune", "PasswordForJuly", "PasswordForAugust",
             "PasswordForSeptember", "PasswordForOctober", "PasswordForNovember", "PasswordForDecember"));
 
-
-    private final BCryptPasswordEncoder encoder;
-    public UserSignUpService(){
-        encoder = new BCryptPasswordEncoder(13);
-    }
+    @Autowired
+    PasswordEncoder encoder;
+//    public UserSignUpService(){
+//        encoder = new BCryptPasswordEncoder(13);
+//    }
 
     public UserSignUpDTO save(UserSignUp userSignUp){
         UserSignUp savedUser;
         try {
             System.out.println("password: " + userSignUp.getPassword());
-            System.out.println("Encoded password: " + encoder.encode(userSignUp.getPassword()));
-            userSignUp.setPassword(encoder.encode(userSignUp.getPassword()));
+            System.out.println("Encoded password: " + encoder.getEncoder().encode(userSignUp.getPassword()));
+            userSignUp.setPassword(encoder.getEncoder().encode(userSignUp.getPassword()));
             savedUser = userSignUpRepository.save(userSignUp);
         } catch (DataIntegrityViolationException e) {
 

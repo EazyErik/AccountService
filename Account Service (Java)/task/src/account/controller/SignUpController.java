@@ -2,6 +2,7 @@ package account.controller;
 
 //import account.service.ErrorResponse;
 
+import account.config.PasswordEncoder;
 import account.data.UserSignUp;
 import account.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
+
+
 
 @RestController
 @RequestMapping("/api")
@@ -20,6 +24,9 @@ public class SignUpController {
 
     @Autowired
     UserSignUpService userSignUpService;
+
+    @Autowired
+    BCryptPasswordEncoder encoder;
 
     @PostMapping("auth/signup")
     public ResponseEntity<UserSignUpDTO> signup(@RequestBody UserSignUp userSignUp) {
@@ -43,8 +50,10 @@ private void checkValidUser(UserSignUp userSignUp) {
                     userSignUp.getEmail().endsWith("@acme.com") &&
                     !userSignUp.getPassword().isEmpty()) {
 
+    }else{
+        throw new CustomException("");
     }
-    throw new CustomException("");
+
 }
 
 private void validatePasswordSecurity(String password) {
@@ -57,10 +66,19 @@ private void validatePasswordSecurity(String password) {
         }
     }
 }
+@GetMapping("auth/test")
+public ResponseEntity<PasswordDTO> testValidate(){
+        return ResponseEntity.ok(new PasswordDTO("apfelkuchenistlecker"));
+}
 
 @PostMapping("auth/changepass")
-public ResponseEntity<SuccesfullPasswordChangeDTO> changePassword(@AuthenticationPrincipal UserDetails userDetails, PasswordDTO passwordDTO) {
+public ResponseEntity<SuccesfullPasswordChangeDTO> changePassword(@AuthenticationPrincipal UserDetails userDetails,@RequestBody PasswordDTO passwordDTO) {
     UserSignUp currentUser = userSignUpService.loadUserByEmail(userDetails.getUsername());
+
+    //todo:encode new_password for database
+    if(encoder.matches(passwordDTO.getNew_password(),currentUser.getPassword())){
+        throw new CustomException("The passwords must be different!");
+    }
     currentUser.setPassword(passwordDTO.getNew_password());
     validatePasswordSecurity(currentUser.getPassword());
     userSignUpService.save(currentUser);
@@ -75,7 +93,10 @@ public ResponseEntity<CustomErrorMessage> handleCustomException(CustomException 
             HttpStatus.BAD_REQUEST.value(),
             "Bad Request",
             ex.getMessage(),
-            request.getDescription(false));
+            request.getDescription(false).substring(4));
+    System.out.println(request.getContextPath());
+    System.out.println(request.getDescription(false));
+    System.out.println(request);
     System.out.println("Exception Handler");
     return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
 }

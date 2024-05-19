@@ -14,11 +14,11 @@ public class UserDetailsImpl implements UserDetailsService {
     @Autowired(required = false)
     UserSignUpRepository userSignUpRepository;
 
-    @Autowired
-    BCryptPasswordEncoder encoder;
+
 
     public UserDetailsImpl(){
         System.out.println("Constructor UserDetailsImpl");
+
     }
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -28,8 +28,7 @@ public class UserDetailsImpl implements UserDetailsService {
         if(user == null){
             throw new UsernameNotFoundException("No user with this email: " + email);
         }
-        System.out.println("password: " + user.getPassword());
-        System.out.println("Encoded password: " + encoder.encode(user.getPassword()));
+
 
         return org.springframework.security.core.userdetails.User.builder()
                 .username(user.getEmail())
