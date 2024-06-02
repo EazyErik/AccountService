@@ -13,8 +13,11 @@ public class UserSignUp {
     private String name;
     private String lastname;
     @Column(unique = true)
+
     private String email;
     private String password;
+    @OneToOne(mappedBy = "userSignUp", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    private Payroll payroll;
 
     public UserSignUp(Long id, String name, String lastname, String email, String password) {
         this.name = name;

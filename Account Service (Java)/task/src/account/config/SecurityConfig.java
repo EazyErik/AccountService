@@ -29,6 +29,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth  // manage access
                                 .requestMatchers(antMatcher(HttpMethod.POST, "/api/auth/signup")).permitAll()
                                 .requestMatchers(antMatcher(HttpMethod.POST, "/actuator/shutdown")).permitAll()
+                                .requestMatchers(antMatcher(HttpMethod.POST, "/api/acct/payments")).permitAll()
+                                .requestMatchers(antMatcher(HttpMethod.PUT, "/api/acct/payments")).permitAll()
                                 .requestMatchers(antMatcher("/h2-console/**")).permitAll()
                                 .requestMatchers(antMatcher("/api/empl/payment")).permitAll().anyRequest().authenticated()
 

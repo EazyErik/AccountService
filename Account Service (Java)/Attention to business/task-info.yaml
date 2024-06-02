@@ -57,6 +57,21 @@ files:
   - name: src/account/data/Payroll.java
     visible: true
     learner_created: true
+  - name: src/account/controller/PaymentController.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/PaymentResponseDTO.java
+    visible: true
+    learner_created: true
+  - name: src/account/repository/PayrollRepository.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/PayrollService.java
+    visible: true
+    learner_created: true
+  - name: src/account/controller/ExceptionController.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/16604#comment
 status: Unchecked
 record: -1

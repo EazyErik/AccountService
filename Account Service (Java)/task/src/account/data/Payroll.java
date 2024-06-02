@@ -1,17 +1,34 @@
 package account.data;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Payroll {
 
-    //todo: wir muessen uperberpruefen, dass der employee in der userSingUpTabelle ist, aber mit email vergleiche
-    //employee with userEmail
+    @Id
     private String employee;
     private String period;
     private long salary;
+    @OneToOne
+    @JoinColumn(referencedColumnName = "email")
+    private UserSignUp userSignUp;
+
+
 
     public Payroll(String employee, String period, long salary) {
         this.employee = employee;
         this.period = period;
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Payroll{" +
+                "employee='" + employee + '\'' +
+                ", period='" + period + '\'' +
+                ", salary=" + salary +
+                ", userSignUp=" + userSignUp +
+                '}';
     }
 
     public Payroll() {
