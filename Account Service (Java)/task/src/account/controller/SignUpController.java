@@ -80,19 +80,19 @@ public class SignUpController {
         }
         currentUser.setPassword(passwordDTO.getNew_password());
         validatePasswordSecurity(currentUser.getPassword());
-        userSignUpService.save(currentUser);
+        userSignUpService.changePassword(currentUser);
         return ResponseEntity.ok(new SuccesfullPasswordChangeDTO(currentUser.getEmail(), "The password has been updated successfully"));
 
     }
 
 
-    @GetMapping("/empl/payment")
-    public ResponseEntity<UserSignUpDTO> getPayment(@AuthenticationPrincipal UserDetails userDetails) {
-        System.out.println("GETMapping");
-        UserSignUp currentUser = userSignUpService.loadUserByEmail(userDetails.getUsername());
-        UserSignUpDTO userSignUpDTO = userSignUpService.transformFrom(currentUser);
-
-        System.out.println(userDetails);
-        return new ResponseEntity<>(userSignUpDTO, HttpStatus.OK);
-    }
+//    @GetMapping("/empl/payment")
+//    public ResponseEntity<UserSignUpDTO> getPayment(@AuthenticationPrincipal UserDetails userDetails) {
+//        System.out.println("GETMapping");
+//        UserSignUp currentUser = userSignUpService.loadUserByEmail(userDetails.getUsername());
+//        UserSignUpDTO userSignUpDTO = userSignUpService.transformFrom(currentUser);
+//
+//        System.out.println(userDetails);
+//        return new ResponseEntity<>(userSignUpDTO, HttpStatus.OK);
+//    }
 }

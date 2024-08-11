@@ -3,6 +3,9 @@ package account.data;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Entity
 public class UserSignUp {
@@ -16,8 +19,17 @@ public class UserSignUp {
 
     private String email;
     private String password;
-    @OneToOne(mappedBy = "userSignUp", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    private Payroll payroll;
+
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    },fetch = FetchType.EAGER)
+    @JoinTable(name = "user_groups",
+            joinColumns =@JoinColumn(name = "user_sign_up_id"),
+            inverseJoinColumns = @JoinColumn(name = "id"
+            ))
+    private Set<Role> userRoles= new HashSet<>();
 
     public UserSignUp(Long id, String name, String lastname, String email, String password) {
         this.name = name;
@@ -64,5 +76,13 @@ public class UserSignUp {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<Role> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(Set<Role> userRoles) {
+        this.userRoles = userRoles;
     }
 }

@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">1</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1m9.31s</div>
+<div class="counter">3.765s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,13 +61,83 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard output</a>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="start"></a>
+<h3 class="failures">start</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Wrong answer in test #12
+
+The JSON object should contain a key &quot;roles&quot;
+
+Full JSON:
+{
+  &quot;id&quot;: 1,
+  &quot;name&quot;: &quot;John&quot;,
+  &quot;lastname&quot;: &quot;Doe&quot;,
+  &quot;email&quot;: &quot;johndoe@acme.com&quot;
+}
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:203)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:108)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:57)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:39)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:52)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$2.run(TestWorker.java:176)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -78,13 +148,13 @@
 </tr>
 </thead>
 <tr>
-<td class="success">start</td>
-<td class="success">1m9.31s</td>
-<td class="success">passed</td>
+<td class="failures">start</td>
+<td class="failures">3.765s</td>
+<td class="failures">failed</td>
 </tr>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
 <pre>?[1;31m
@@ -98,742 +168,57 @@ Start test 1?[0m
 ?[0m?[0;34m =========|_|==============|___/=/_/_/_/
 ?[0m?[0;34m :: Spring Boot ::                (v3.0.2)
 ?[0m?[0;34m
-?[0m?[0;34m2024-05-19T11:43:49.196+02:00  INFO 52262 --- [    Test worker] account.AccountServiceApplication        : Starting AccountServiceApplication using Java 17.0.10 with PID 52262 (started by erikbusch in /Users/erikbusch/IdeaProjects/Account Service (Java)/Account Service (Java)/task)
-?[0m?[0;34m2024-05-19T11:43:49.199+02:00  INFO 52262 --- [    Test worker] account.AccountServiceApplication        : No active profile set, falling back to 1 default profile: &quot;default&quot;
-?[0m?[0;34m2024-05-19T11:43:49.475+02:00  INFO 52262 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-?[0m?[0;34m2024-05-19T11:43:49.497+02:00  INFO 52262 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 1 JPA repository interfaces.
-?[0m?[0;34m2024-05-19T11:43:49.927+02:00  INFO 52262 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
-?[0m?[0;34m2024-05-19T11:43:49.935+02:00  INFO 52262 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-?[0m?[0;34m2024-05-19T11:43:49.935+02:00  INFO 52262 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
-?[0m?[0;34m2024-05-19T11:43:49.988+02:00  INFO 52262 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-?[0m?[0;34m2024-05-19T11:43:49.989+02:00  INFO 52262 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 772 ms
-?[0m?[0;34m2024-05-19T11:43:50.038+02:00  INFO 52262 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-?[0m?[0;34m2024-05-19T11:43:50.144+02:00  INFO 52262 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:../service_db user=SA
-?[0m?[0;34m2024-05-19T11:43:50.145+02:00  INFO 52262 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-?[0m?[0;34m2024-05-19T11:43:50.152+02:00  INFO 52262 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../service_db'
-?[0m?[0;34m2024-05-19T11:43:50.225+02:00  INFO 52262 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-?[0m?[0;34m2024-05-19T11:43:50.256+02:00  INFO 52262 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-?[0m?[0;34m2024-05-19T11:43:50.331+02:00  WARN 52262 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-?[0m?[0;34m2024-05-19T11:43:50.393+02:00  INFO 52262 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-?[0m?[0;34m2024-05-19T11:43:50.788+02:00  INFO 52262 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-?[0m?[0;34m2024-05-19T11:43:50.792+02:00  INFO 52262 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+?[0m?[0;34m2024-08-11T12:05:06.273+02:00  INFO 6858 --- [    Test worker] account.AccountServiceApplication        : Starting AccountServiceApplication using Java 17.0.10 with PID 6858 (started by erikbusch in /Users/erikbusch/IdeaProjects/Account Service (Java)/Account Service (Java)/task)
+?[0m?[0;34m2024-08-11T12:05:06.275+02:00  INFO 6858 --- [    Test worker] account.AccountServiceApplication        : No active profile set, falling back to 1 default profile: &quot;default&quot;
+?[0m?[0;34m2024-08-11T12:05:06.572+02:00  INFO 6858 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+?[0m?[0;34m2024-08-11T12:05:06.596+02:00  INFO 6858 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
+?[0m?[0;34m2024-08-11T12:05:07.020+02:00  INFO 6858 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
+?[0m?[0;34m2024-08-11T12:05:07.026+02:00  INFO 6858 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+?[0m?[0;34m2024-08-11T12:05:07.026+02:00  INFO 6858 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+?[0m?[0;34m2024-08-11T12:05:07.073+02:00  INFO 6858 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+?[0m?[0;34m2024-08-11T12:05:07.074+02:00  INFO 6858 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 778 ms
+?[0m?[0;34m2024-08-11T12:05:07.115+02:00  INFO 6858 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+?[0m?[0;34m2024-08-11T12:05:07.221+02:00  INFO 6858 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:../service_db user=SA
+?[0m?[0;34m2024-08-11T12:05:07.222+02:00  INFO 6858 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+?[0m?[0;34m2024-08-11T12:05:07.227+02:00  INFO 6858 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../service_db'
+?[0m?[0;34m2024-08-11T12:05:07.298+02:00  INFO 6858 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+?[0m?[0;34m2024-08-11T12:05:07.327+02:00  INFO 6858 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+?[0m?[0;34m2024-08-11T12:05:07.408+02:00  WARN 6858 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+?[0m?[0;34m2024-08-11T12:05:07.466+02:00  INFO 6858 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+?[0m?[0;34m2024-08-11T12:05:07.955+02:00  INFO 6858 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+?[0m?[0;34m2024-08-11T12:05:07.960+02:00  INFO 6858 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 ?[0m?[0;34mConstructor UserDetailsImpl
-?[0m?[0;34m2024-05-19T11:43:50.959+02:00  WARN 52262 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+?[0m?[0;34m2024-08-11T12:05:08.158+02:00  WARN 6858 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 ?[0m?[0;34mhier
-?[0m?[0;34m2024-05-19T11:43:51.020+02:00  INFO 52262 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@534c3b9d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69b436a7, org.springframework.security.web.context.SecurityContextHolderFilter@5da799, org.springframework.security.web.header.HeaderWriterFilter@38aed8ad, org.springframework.security.web.authentication.logout.LogoutFilter@79392584, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6278371a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@a15e3c1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e797a39, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5dfd4fac, org.springframework.security.web.session.SessionManagementFilter@7859fc7, org.springframework.security.web.access.ExceptionTranslationFilter@141874c8, org.springframework.security.web.access.intercept.AuthorizationFilter@696a6506]
-?[0m?[0;34m2024-05-19T11:43:51.280+02:00  INFO 52262 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-?[0m?[0;34m2024-05-19T11:43:51.323+02:00  INFO 52262 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
-?[0m?[0;34m2024-05-19T11:43:51.335+02:00  INFO 52262 --- [    Test worker] account.AccountServiceApplication        : Started AccountServiceApplication in 2.297 seconds (process running for 2.786)
-?[0;34m2024-05-19T11:43:51.494+02:00  INFO 52262 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-?[0m?[0;34m2024-05-19T11:43:51.494+02:00  INFO 52262 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-?[0m?[0;34m2024-05-19T11:43:51.495+02:00  INFO 52262 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
+?[0m?[0;34m2024-08-11T12:05:08.224+02:00  INFO 6858 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4bf6bc2d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c914364, org.springframework.security.web.context.SecurityContextHolderFilter@5e609b42, org.springframework.security.web.header.HeaderWriterFilter@d0456ad, org.springframework.security.web.authentication.logout.LogoutFilter@55d35f7a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6df605f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@24673720, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ed4c822, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25c756f0, org.springframework.security.web.session.SessionManagementFilter@622c658d, org.springframework.security.web.access.ExceptionTranslationFilter@29ceefb3, org.springframework.security.web.access.intercept.AuthorizationFilter@74727e41]
+?[0m?[0;34m2024-08-11T12:05:08.470+02:00  INFO 6858 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+?[0m?[0;34m2024-08-11T12:05:08.507+02:00  INFO 6858 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
+?[0m?[0;34m2024-08-11T12:05:08.516+02:00  INFO 6858 --- [    Test worker] account.AccountServiceApplication        : Started AccountServiceApplication in 2.411 seconds (process running for 2.974)
+?[0;34m2024-08-11T12:05:08.673+02:00  INFO 6858 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+?[0m?[0;34m2024-08-11T12:05:08.674+02:00  INFO 6858 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+?[0m?[0;34m2024-08-11T12:05:08.674+02:00  INFO 6858 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
 ?[0m?[1;31m
 Start test 2?[0m
-?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
 ?[1;31m
 Start test 3?[0m
-?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
 ?[1;31m
 Start test 4?[0m
-?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
 ?[1;31m
 Start test 5?[0m
-?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
 ?[1;31m
 Start test 6?[0m
-?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
 ?[1;31m
 Start test 7?[0m
-?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
 ?[1;31m
 Start test 8?[0m
-?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
 ?[1;31m
 Start test 9?[0m
-?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
 ?[1;31m
 Start test 10?[0m
-?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
 ?[1;31m
 Start test 11?[0m
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
 ?[1;31m
 Start test 12?[0m
-?[0m?[0;34mpassword: oMoa3VvqnLxW
-?[0m?[0;34mEncoded password: $2a$13$8jQ5uWvpPrURo2ilh1pBPeZMbNw9DhhGou.va6IBN1djHMYsMDnv.
-?[0m?[0;34mpassword: oMoa3VvqnLxW
-?[0m?[0;34mEncoded password: $2a$13$Nus0b2CGMwfI9tMsVY4ny.Fl2cB49..gfxTITUTcVWJVgFbXlTsUe
-?[0m?[0;34m2024-05-19T11:43:54.127+02:00  WARN 52262 --- [io-28852-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-?[0m?[0;34m2024-05-19T11:43:54.127+02:00 ERROR 52262 --- [io-28852-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: &quot;PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )&quot;; SQL statement:
-?[0m?[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
-?[0m?[0;34m2024-05-19T11:43:54.128+02:00  INFO 52262 --- [io-28852-exec-4] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 13?[0m
-?[0m?[0;34mpassword: oMoa3VvqnLxW
-?[0m?[0;34mEncoded password: $2a$13$7m1tZgyRd/IH7GE26MSBIOzwerR1d/PHVBkaRHJM2vIqOieoTZ3y2
-?[0m?[0;34m2024-05-19T11:43:55.331+02:00  WARN 52262 --- [io-28852-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-?[0m?[0;34m2024-05-19T11:43:55.331+02:00 ERROR 52262 --- [io-28852-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: &quot;PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )&quot;; SQL statement:
-?[0m?[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
-?[0m?[0;34m2024-05-19T11:43:55.331+02:00  INFO 52262 --- [io-28852-exec-5] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 14?[0m
-?[0m?[0;34mpassword: oMoa3VvqnLxW
-?[0m?[0;34mEncoded password: $2a$13$W0kV3LGMVeeJeDWv2nJmZ.CufjP0u.fGQzBH/cdkwSLA5b0.poGru
-?[0m?[0;34m2024-05-19T11:43:56.521+02:00  WARN 52262 --- [io-28852-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-?[0m?[0;34m2024-05-19T11:43:56.521+02:00 ERROR 52262 --- [io-28852-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: &quot;PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )&quot;; SQL statement:
-?[0m?[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
-?[0m?[0;34m2024-05-19T11:43:56.521+02:00  INFO 52262 --- [io-28852-exec-6] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 15?[0m
-?[0m?[0;34mpassword: oMoa3VvqnLxW
-?[0m?[0;34mEncoded password: $2a$13$dPbFgWRKjAzj5fOeQyHJXefsmMjeOGtkcT/ijemu./vr1UkeeG1Oi
-?[0m?[0;34m2024-05-19T11:43:57.742+02:00  WARN 52262 --- [io-28852-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-?[0m?[0;34m2024-05-19T11:43:57.742+02:00 ERROR 52262 --- [io-28852-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: &quot;PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )&quot;; SQL statement:
-?[0m?[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
-?[0m?[0;34m2024-05-19T11:43:57.742+02:00  INFO 52262 --- [io-28852-exec-7] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 16?[0m
-?[0m?[0;34mpassword: ai0y9bMvyF6G
-?[0m?[0;34mEncoded password: $2a$13$wtLI/mlWzkDyOzqWMmiP.evWquYXlh1eLUb1PObEVCxfqmtW0mp5m
-?[0m?[0;34mpassword: ai0y9bMvyF6G
-?[0m?[0;34mEncoded password: $2a$13$Z25AlUMXkQXmn3ecC8VexOxqqG6E.9Wy8Ouau.wL7e8qg5AB2nGru
-?[0m?[0;34m2024-05-19T11:44:00.122+02:00  WARN 52262 --- [io-28852-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-?[0m?[0;34m2024-05-19T11:44:00.122+02:00 ERROR 52262 --- [io-28852-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: &quot;PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 6 */ 'maxmustermann@acme.com' )&quot;; SQL statement:
-?[0m?[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
-?[0m?[0;34m2024-05-19T11:44:00.122+02:00  INFO 52262 --- [io-28852-exec-9] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 17?[0m
-?[0m?[0;34mpassword: ai0y9bMvyF6G
-?[0m?[0;34mEncoded password: $2a$13$dYT63C6y5Usjjoxt2PTRv.23TNlWPUx1SHXiuFD1JMNIpRGuFSI6e
-?[0m?[0;34m2024-05-19T11:44:01.311+02:00  WARN 52262 --- [o-28852-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-?[0m?[0;34m2024-05-19T11:44:01.311+02:00 ERROR 52262 --- [o-28852-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: &quot;PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 6 */ 'maxmustermann@acme.com' )&quot;; SQL statement:
-?[0m?[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
-?[0m?[0;34m2024-05-19T11:44:01.311+02:00  INFO 52262 --- [o-28852-exec-10] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 18?[0m
-?[0m?[0;34mpassword: ai0y9bMvyF6G
-?[0m?[0;34mEncoded password: $2a$13$8eZcRoxpKQxPLV/IaSuK/OPvhtWTMX8XelZYP9pQKJwOa02YQUpsG
-?[0m?[0;34m2024-05-19T11:44:02.503+02:00  WARN 52262 --- [io-28852-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-?[0m?[0;34m2024-05-19T11:44:02.503+02:00 ERROR 52262 --- [io-28852-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: &quot;PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 6 */ 'maxmustermann@acme.com' )&quot;; SQL statement:
-?[0m?[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
-?[0m?[0;34m2024-05-19T11:44:02.503+02:00  INFO 52262 --- [io-28852-exec-1] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/signup
-?[0m?[0;34mServletWebRequest: uri=/api/auth/signup;client=127.0.0.1
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 19?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@6730950e
-?[0m?[0;34mGETMapping
-?[0m?[0;34morg.springframework.security.core.userdetails.User [Username=johndoe@acme.com, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]]
-?[1;31m
-Start test 20?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@52790929
-?[0m?[0;34mGETMapping
-?[0m?[0;34morg.springframework.security.core.userdetails.User [Username=johndoe@acme.com, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]]
-?[1;31m
-Start test 21?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@78d8a7d
-?[0m?[0;34mGETMapping
-?[0m?[0;34morg.springframework.security.core.userdetails.User [Username=maxmustermann@acme.com, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]]
-?[1;31m
-Start test 22?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@2d20f2be
-?[0m?[0;34mGETMapping
-?[0m?[0;34morg.springframework.security.core.userdetails.User [Username=maxmustermann@acme.com, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]]
-?[1;31m
-Start test 23?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@46849297
-?[1;31m
-Start test 24?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:null
-?[1;31m
-Start test 25?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@37fda875
-?[1;31m
-Start test 26?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:null
-?[1;31m
-Start test 27?[0m
-?[0m?[0;34mGETMapping
-?[0m?[0;34m2024-05-19T11:44:07.952+02:00 ERROR 52262 --- [io-28852-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke &quot;org.springframework.security.core.userdetails.UserDetails.getUsername()&quot; because &quot;userDetails&quot; is null] with root cause
-?[0m?[0;34m
-?[0m?[0;34mjava.lang.NullPointerException: Cannot invoke &quot;org.springframework.security.core.userdetails.UserDetails.getUsername()&quot; because &quot;userDetails&quot; is null
-?[0m?[0;34m	at account.controller.SignUpController.getPayment(SignUpController.java:108) ~[main/:na]
-?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-?[0m?[0;34m	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-?[0m?[0;34m	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080) ~[spring-webmvc-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973) ~[spring-webmvc-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:705) ~[tomcat-embed-core-10.1.5.jar:6.0]
-?[0m?[0;34m	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814) ~[tomcat-embed-core-10.1.5.jar:6.0]
-?[0m?[0;34m	at jdk.internal.reflect.GeneratedMethodAccessor20.invoke(Unknown Source) ~[na:na]
-?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:281) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
-?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:312) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:171) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:217) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:141) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:139) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at jdk.internal.reflect.GeneratedMethodAccessor15.invoke(Unknown Source) ~[na:na]
-?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:281) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
-?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:312) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:254) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:183) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:141) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:139) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:399) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:297) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:79) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:125) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:170) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:173) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:186) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:280) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:170) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:134) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.0.1.jar:6.0.1]
-?[0m?[0;34m	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:351) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at jdk.internal.reflect.GeneratedMethodAccessor15.invoke(Unknown Source) ~[na:na]
-?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:281) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
-?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:312) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:254) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:183) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:141) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:139) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at jdk.internal.reflect.GeneratedMethodAccessor15.invoke(Unknown Source) ~[na:na]
-?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:281) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
-?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:312) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:254) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:183) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:141) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:139) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at jdk.internal.reflect.GeneratedMethodAccessor15.invoke(Unknown Source) ~[na:na]
-?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:281) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
-?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:312) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:254) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:183) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:141) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:139) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at jdk.internal.reflect.GeneratedMethodAccessor15.invoke(Unknown Source) ~[na:na]
-?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:281) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
-?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:312) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:254) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:183) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:141) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:139) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.4.jar:6.0.4]
-?[0m?[0;34m	at jdk.internal.reflect.GeneratedMethodAccessor15.invoke(Unknown Source) ~[na:na]
-?[0m?[0;34m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-?[0m?[0;34m	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.lambda$execute$0(SecurityUtil.java:281) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
-?[0m?[0;34m	at java.base/javax.security.auth.Subject.doAsPrivileged(Subject.java:584) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.execute(SecurityUtil.java:312) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.security.SecurityUtil.doAsPrivilege(SecurityUtil.java:254) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:183) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.lambda$doFilter$0(ApplicationFilterChain.java:141) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569) ~[na:na]
-?[0m?[0;34m	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:139) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.5.jar:10.1.5]
-?[0m?[0;34m	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
-?[0m?[0;34m
-?[1;31m
-Start test 28?[0m
-?[1;31m
-Start test 29?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@336f2db8
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 30?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@1894bcfc
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 31?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@39df22fe
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 32?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@1fe78631
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 33?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@74b61d7c
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 34?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@6d517ab4
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 35?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@519adbc2
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 36?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@5aaf1379
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 37?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@233d6349
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 38?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@61d4de71
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 39?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@23b4233e
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 40?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@25bf25ca
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 41?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@5df55a1a
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 42?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@1980f46d
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 43?[0m
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@377b4bba
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@6f1bdde3
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@5805bcdd
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@342ebfac
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@5eea4a57
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@4e322b7d
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@6d2b986c
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@4b5f0d09
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@623511ac
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@604b07b3
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@2209edd7
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@67e51b61
-?[0m?[0;34m
-?[0m?[0;34muri=/api/auth/changepass
-?[0m?[0;34mServletWebRequest: uri=/api/auth/changepass;client=127.0.0.1;user=johndoe@acme.com
-?[0m?[0;34mException Handler
-?[1;31m
-Start test 44?[0m
-?[0;34m2024-05-19T11:44:39.380+02:00  INFO 52262 --- [       Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-?[0m?[0;34m2024-05-19T11:44:39.382+02:00  INFO 52262 --- [       Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-?[0m?[0;34m2024-05-19T11:44:39.391+02:00  INFO 52262 --- [       Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-?[0m?[0;34m2024-05-19T11:44:39.394+02:00  INFO 52262 --- [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-?[0m?[0;34m2024-05-19T11:44:39.408+02:00  INFO 52262 --- [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-?[0;34m
-?[0m?[0;34m  .   ____          _            __ _ _
-?[0m?[0;34m /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-?[0m?[0;34m( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
-?[0m?[0;34m \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-?[0m?[0;34m  '  |____| .__|_| |_|_| |_\__, | / / / /
-?[0m?[0;34m =========|_|==============|___/=/_/_/_/
-?[0m?[0;34m :: Spring Boot ::                (v3.0.2)
-?[0m?[0;34m
-?[0m?[0;34m2024-05-19T11:44:49.238+02:00  INFO 52262 --- [    Test worker] account.AccountServiceApplication        : Starting AccountServiceApplication using Java 17.0.10 with PID 52262 (started by erikbusch in /Users/erikbusch/IdeaProjects/Account Service (Java)/Account Service (Java)/task)
-?[0m?[0;34m2024-05-19T11:44:49.238+02:00  INFO 52262 --- [    Test worker] account.AccountServiceApplication        : No active profile set, falling back to 1 default profile: &quot;default&quot;
-?[0m?[0;34m2024-05-19T11:44:49.315+02:00  INFO 52262 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-?[0m?[0;34m2024-05-19T11:44:49.317+02:00  INFO 52262 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 1 JPA repository interfaces.
-?[0m?[0;34m2024-05-19T11:44:49.395+02:00  INFO 52262 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
-?[0m?[0;34m2024-05-19T11:44:49.396+02:00  INFO 52262 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-?[0m?[0;34m2024-05-19T11:44:49.396+02:00  INFO 52262 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
-?[0m?[0;34m2024-05-19T11:44:49.401+02:00  INFO 52262 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-?[0m?[0;34m2024-05-19T11:44:49.401+02:00  INFO 52262 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 162 ms
-?[0m?[0;34m2024-05-19T11:44:49.413+02:00  INFO 52262 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-?[0m?[0;34m2024-05-19T11:44:49.418+02:00  INFO 52262 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:file:../service_db user=SA
-?[0m?[0;34m2024-05-19T11:44:49.418+02:00  INFO 52262 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-?[0m?[0;34m2024-05-19T11:44:49.419+02:00  INFO 52262 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../service_db'
-?[0m?[0;34m2024-05-19T11:44:49.442+02:00  INFO 52262 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-?[0m?[0;34m2024-05-19T11:44:49.443+02:00  WARN 52262 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-?[0m?[0;34m2024-05-19T11:44:49.445+02:00  INFO 52262 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-?[0m?[0;34m2024-05-19T11:44:49.469+02:00  INFO 52262 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-?[0m?[0;34m2024-05-19T11:44:49.470+02:00  INFO 52262 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-?[0m?[0;34mConstructor UserDetailsImpl
-?[0m?[0;34m2024-05-19T11:44:49.491+02:00  WARN 52262 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-?[0m?[0;34mhier
-?[0m?[0;34m2024-05-19T11:44:49.499+02:00  INFO 52262 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@21584b99, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@728cef8e, org.springframework.security.web.context.SecurityContextHolderFilter@3594b4b4, org.springframework.security.web.header.HeaderWriterFilter@64bcf689, org.springframework.security.web.authentication.logout.LogoutFilter@661ec798, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2c7fff1b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4191774f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@429ad94a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@134ccb03, org.springframework.security.web.session.SessionManagementFilter@2bf3ec4a, org.springframework.security.web.access.ExceptionTranslationFilter@6212dc7d, org.springframework.security.web.access.intercept.AuthorizationFilter@316a682b]
-?[0m?[0;34m2024-05-19T11:44:49.563+02:00  INFO 52262 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-?[0m?[0;34m2024-05-19T11:44:49.572+02:00  INFO 52262 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
-?[0m?[0;34m2024-05-19T11:44:49.576+02:00  INFO 52262 --- [    Test worker] account.AccountServiceApplication        : Started AccountServiceApplication in 0.353 seconds (process running for 61.025)
-?[0m?[1;31m
-Start test 45?[0m
-?[0;34m2024-05-19T11:44:49.580+02:00  INFO 52262 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-?[0m?[0;34m2024-05-19T11:44:49.580+02:00  INFO 52262 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-?[0m?[0;34m2024-05-19T11:44:49.581+02:00  INFO 52262 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-?[0m?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@21eacd71
-?[0m?[0;34mGETMapping
-?[0m?[0;34morg.springframework.security.core.userdetails.User [Username=maxmustermann@acme.com, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]]
-?[1;31m
-Start test 46?[0m
-?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@d1f2871
-?[0m?[0;34mpassword: aNob5VvqzRtb
-?[0m?[0;34mEncoded password: $2a$13$kpy0g/hz9NT.S194ImJ//.QCpytkcMYBvvLRSDvihjqApudM1FSFm
-?[1;31m
-Start test 47?[0m
-?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@12cf3e92
-?[1;31m
-Start test 48?[0m
-?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@737bf040
-?[0m?[0;34mGETMapping
-?[0m?[0;34morg.springframework.security.core.userdetails.User [Username=johndoe@acme.com, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]]
-?[1;31m
-Start test 49?[0m
-?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@4d371ff8
-?[0m?[0;34mpassword: aNob5VvqzRtb
-?[0m?[0;34mEncoded password: $2a$13$aO99qegw39uDSj43Y6qu7.yye68uEp9oudZs9FwdUgTJXJA1cKya2
-?[1;31m
-Start test 50?[0m
-?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@31cc0bef
-?[1;31m
-Start test 51?[0m
-?[0;34mloadUserByEmail
-?[0m?[0;34muser:account.data.UserSignUp@25aace9d
-?[0m?[0;34mGETMapping
-?[0m?[0;34morg.springframework.security.core.userdetails.User [Username=maxmustermann@acme.com, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_USER]]
 </pre>
 </span>
 </div>
@@ -845,7 +230,7 @@ Start test 51?[0m
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6</a> at 19 May 2024, 11:44:58</p>
+<a href="http://www.gradle.org">Gradle 7.6</a> at 11 Aug 2024, 12:05:09</p>
 </div>
 </div>
 </body>

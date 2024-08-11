@@ -21,6 +21,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         System.out.println("hier");
 
+        //todo: empty database and retest calling getPayment with admin and user!
         http
                 .httpBasic(Customizer.withDefaults())
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(restAuthenticationEntryPoint)) // Handle auth errors
@@ -32,7 +33,8 @@ public class SecurityConfig {
                                 .requestMatchers(antMatcher(HttpMethod.POST, "/api/acct/payments")).permitAll()
                                 .requestMatchers(antMatcher(HttpMethod.PUT, "/api/acct/payments")).permitAll()
                                 .requestMatchers(antMatcher("/h2-console/**")).permitAll()
-                                .requestMatchers(antMatcher("/api/empl/payment")).permitAll().anyRequest().authenticated()
+                                .requestMatchers(antMatcher("/api/empl/payment")).hasAnyAuthority("ROLE_USER") // Admin-only endpoints
+                                .anyRequest().authenticated()
 
 
 

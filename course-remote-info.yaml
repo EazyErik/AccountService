@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://cogniterra.org/media/attachments/lesson/26066/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: "Sun, 02 Jun 2024 07:52:32 UTC"
+update_date: "Sun, 11 Aug 2024 09:53:01 UTC"
 stages:
   - id: 1086
     step: 16601
@@ -16,7 +16,7 @@ stages:
     is_completed: true
   - id: 1089
     step: 16604
-    is_completed: false
+    is_completed: true
   - id: 1090
     step: 16605
     is_completed: false
@@ -30,38 +30,28 @@ topics:
   0:
     - title: Modulo division
       theory_id: 10586
-    - title: Computer algorithms
-      theory_id: 16547
-    - title: "Big O: how to count it"
-      theory_id: 35901
-    - title: Complexity cases and how to use them
-      theory_id: 20084
+    - title: Data structures
+      theory_id: 40371
     - title: Abstract and concrete data structures
       theory_id: 16927
-    - title: World Wide Web
-      theory_id: 6633
-    - title: "HTTP: HyperText Transfer Protocol"
-      theory_id: 6569
     - title: "Write, compile, and run"
       theory_id: 3739
     - title: "Basic terms: JVM, JRE, JDK"
       theory_id: 3499
+    - title: Operating systems
+      theory_id: 9704
     - title: Command line overview
       theory_id: 8977
     - title: Parameters and options
       theory_id: 9746
-    - title: Units of information
-      theory_id: 6865
+    - title: World Wide Web
+      theory_id: 6633
     - title: Spring and Spring Boot frameworks
       theory_id: 7944
     - title: Getting started with Spring Boot
       theory_id: 6336
     - title: Immutability
       theory_id: 7929
-    - title: Pseudocode
-      theory_id: 15090
-    - title: Pseudocode basics
-      theory_id: 19510
     - title: Fixed-size array
       theory_id: 20078
     - title: Dynamic array
@@ -82,6 +72,8 @@ topics:
       theory_id: 19487
     - title: Bean lifecycle
       theory_id: 19550
+    - title: Spring Stereotypes
+      theory_id: 38935
     - title: HTTP URL
       theory_id: 6740
     - title: Introduction to Spring Web MVC
@@ -94,8 +86,10 @@ topics:
       theory_id: 8512
     - title: Introduction to Spring Data
       theory_id: 16299
-    - title: CRUD repositories
-      theory_id: 18031
+    - title: "CRUD Repositories: Create and Read"
+      theory_id: 38290
+    - title: "CRUD Repositories: Update and Delete"
+      theory_id: 38918
     - title: Application layers
       theory_id: 13971
     - title: Data Transfer Object in Spring
@@ -104,8 +98,6 @@ topics:
       theory_id: 20069
     - title: Spring Security Crypto
       theory_id: 21866
-    - title: Complex constructions in pseudocode
-      theory_id: 20922
     - title: "Web security, OWASP"
       theory_id: 14755
     - title: Getting started with Spring Security
@@ -176,8 +168,6 @@ topics:
       theory_id: 3511
     - title: Arrays as parameters
       theory_id: 3594
-    - title: Web development
-      theory_id: 13931
     - title: Characters
       theory_id: 3514
     - title: String
@@ -206,12 +196,16 @@ topics:
       theory_id: 5077
     - title: Building apps using Gradle
       theory_id: 7917
+    - title: Gradle build configuration
+      theory_id: 35988
     - title: "Dependency management: repositories"
       theory_id: 37189
     - title: External resources
       theory_id: 6216
     - title: Libraries
       theory_id: 8504
+    - title: Web development
+      theory_id: 13931
     - title: Frameworks
       theory_id: 6701
     - title: What is object-oriented programming
@@ -238,14 +232,16 @@ topics:
       theory_id: 9332
     - title: Processes and threads
       theory_id: 9420
-    - title: What are databases
-      theory_id: 8497
     - title: Introduction to software architecture
       theory_id: 15368
     - title: Tags and Attributes
       theory_id: 7536
     - title: HTML page structure
       theory_id: 6491
+    - title: Relational Data Model
+      theory_id: 13785
+    - title: What are databases
+      theory_id: 8497
     - title: Introduction to logging
       theory_id: 5538
     - title: Debugging techniques
@@ -254,8 +250,14 @@ topics:
       theory_id: 9831
     - title: JSON
       theory_id: 6854
+    - title: XML
+      theory_id: 6901
     - title: Data and object mapping
       theory_id: 8262
+    - title: Object-Relational Mapping (ORM)
+      theory_id: 8312
+    - title: Introduction to JPA
+      theory_id: 17125
     - title: Hash function
       theory_id: 30143
     - title: Hash table
@@ -304,6 +306,8 @@ topics:
       theory_id: 4984
     - title: MVC
       theory_id: 17197
+    - title: Entities
+      theory_id: 18135
     - title: The Map interface
       theory_id: 3558
     - title: Thread-safe maps
@@ -369,8 +373,6 @@ topics:
       theory_id: 18086
     - title: HTTP Basic Auth
       theory_id: 7778
-    - title: Relational Data Model
-      theory_id: 13785
     - title: "SQL: structured query language"
       theory_id: 7054
     - title: Basic data types
@@ -395,10 +397,6 @@ topics:
       theory_id: 9059
     - title: Basic DELETE statement
       theory_id: 9075
-    - title: Object-Relational Mapping (ORM)
-      theory_id: 8312
-    - title: Introduction to JPA
-      theory_id: 17125
     - title: Intro to MySQL
       theory_id: 16662
     - title: Introduction to transactions
@@ -407,8 +405,6 @@ topics:
       theory_id: 12357
     - title: Introduction to PostgreSQL
       theory_id: 17974
-    - title: Entities
-      theory_id: 18135
   2:
     - title: Bean validation
       theory_id: 9355
@@ -445,5 +441,15 @@ topics:
     - title: Many-to-many relationships
       theory_id: 28231
   5:
+    - title: Events and listeners
+      theory_id: 28358
+    - title: Spring Security architecture
+      theory_id: 27770
+    - title: Security Filters
+      theory_id: 31487
+    - title: Spring Security Exceptions
+      theory_id: 35375
+    - title: Security events
+      theory_id: 37339
     - title: Singleton
       theory_id: 3555

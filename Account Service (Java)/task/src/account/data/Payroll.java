@@ -6,12 +6,14 @@ import jakarta.persistence.*;
 public class Payroll {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String employee;
     private String period;
     private long salary;
-    @OneToOne
-    @JoinColumn(referencedColumnName = "email")
-    private UserSignUp userSignUp;
+//    @OneToMany
+//    @JoinColumn(referencedColumnName = "email")
+//    private UserSignUp userSignUp;
 
 
 
@@ -27,7 +29,7 @@ public class Payroll {
                 "employee='" + employee + '\'' +
                 ", period='" + period + '\'' +
                 ", salary=" + salary +
-                ", userSignUp=" + userSignUp +
+           //     ", userSignUp=" + userSignUp +
                 '}';
     }
 

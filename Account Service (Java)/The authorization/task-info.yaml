@@ -12,6 +12,89 @@ files:
   - name: test/AccountServiceTest.java
     visible: false
     learner_created: false
+  - name: src/account/controller/SignUpController.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/UserSignUpDTO.java
+    visible: true
+    learner_created: true
+  - name: src/account/data/Payroll.java
+    visible: true
+    learner_created: true
+  - name: src/account/config/SecurityConfig.java
+    visible: true
+    learner_created: true
+  - name: src/account/config/UserDetailsImpl.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/CustomErrorMessage.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/PayrollService.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/PasswordDTO.java
+    visible: true
+    learner_created: true
+  - name: src/account/repository/PayrollRepository.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/CustomException.java
+    visible: true
+    learner_created: true
+  - name: src/account/controller/ExceptionController.java
+    visible: true
+    learner_created: true
+  - name: src/account/controller/PaymentController.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/UserPayrollResponseDTO.java
+    visible: true
+    learner_created: true
+  - name: src/account/config/PasswordEncoder.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/PaymentResponseDTO.java
+    visible: true
+    learner_created: true
+  - name: src/account/data/UserSignUp.java
+    visible: true
+    learner_created: true
+  - name: src/account/config/RestAuthenticationEntryPoint.java
+    visible: true
+    learner_created: true
+  - name: src/account/repository/UserSignUpRepository.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/UserSignUpService.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/SuccesfullPasswordChangeDTO.java
+    visible: true
+    learner_created: true
+  - name: src/account/config/CustomAuthenticationProvider.java
+    visible: true
+    learner_created: true
+  - name: src/account/data/Role.java
+    visible: true
+    learner_created: true
+  - name: src/account/repository/RoleRepository.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/16605#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #12
+
+    The JSON object should contain a key &quot;roles&quot;
+
+    Full JSON:
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;John&quot;,
+      &quot;lastname&quot;: &quot;Doe&quot;,
+      &quot;email&quot;: &quot;johndoe@acme.com&quot;
+    }
+  time: "Sun, 11 Aug 2024 10:05:09 UTC"
 record: -1

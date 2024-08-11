@@ -18,6 +18,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String email = authentication.getName();
         String password = authentication.getCredentials().toString();
+        System.out.println("test" + authentication.getAuthorities());
         UserSignUp userSignUp = userSignUpService.loadUserByEmail(email);
        // UserDetails userDetails = userSignUpService.loadUserByEmail(email);
          if(userSignUp == null){
