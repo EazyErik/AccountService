@@ -3,16 +3,13 @@ package account.controller;
 import account.data.Payroll;
 import account.data.UserSignUp;
 import account.service.*;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RequestMapping
@@ -56,7 +53,7 @@ public class PaymentController {
             String month = payroll.getPeriod().substring(0,payroll.getPeriod().length() - 5);
 
             if(Integer.parseInt(month) > 12){
-                throw new CustomException("Invalid date");
+                throw new BadRequestException("Invalid date");
             }
         }
 

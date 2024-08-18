@@ -39,7 +39,7 @@ files:
   - name: src/account/repository/PayrollRepository.java
     visible: true
     learner_created: true
-  - name: src/account/service/CustomException.java
+  - name: src/account/service/BadRequestException.java
     visible: true
     learner_created: true
   - name: src/account/controller/ExceptionController.java
@@ -81,6 +81,21 @@ files:
   - name: src/account/repository/RoleRepository.java
     visible: true
     learner_created: true
+  - name: src/account/controller/AdminController.java
+    visible: true
+    learner_created: true
+  - name: src/account/controller/UserDTO.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/AdminService.java
+    visible: true
+    learner_created: true
+  - name: src/account/controller/DeleteUserDTO.java
+    visible: true
+    learner_created: true
+  - name: src/account/service/NotFoundException.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/16605#comment
 status: Failed
 feedback:
@@ -97,4 +112,4 @@ feedback:
       &quot;email&quot;: &quot;johndoe@acme.com&quot;
     }
   time: "Sun, 11 Aug 2024 10:05:09 UTC"
-record: -1
+record: 5

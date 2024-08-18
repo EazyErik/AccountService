@@ -2,20 +2,14 @@ package account.controller;
 
 //import account.service.ErrorResponse;
 
-import account.config.PasswordEncoder;
-import account.data.Payroll;
 import account.data.UserSignUp;
 import account.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
-
-import java.time.LocalDateTime;
 
 
 @RestController
@@ -50,18 +44,18 @@ public class SignUpController {
                         !userSignUp.getPassword().isEmpty()) {
 
         } else {
-            throw new CustomException("");
+            throw new BadRequestException("");
         }
 
     }
 
     private void validatePasswordSecurity(String password) {
         if (password.length() < 12) {
-            throw new CustomException("Password length must be 12 chars minimum!");
+            throw new BadRequestException("Password length must be 12 chars minimum!");
 
         } else {
             if (userSignUpService.isBreached(password)) {
-                throw new CustomException("The password is in the hacker's database!");
+                throw new BadRequestException("The password is in the hacker's database!");
             }
         }
     }
@@ -76,7 +70,7 @@ public class SignUpController {
         UserSignUp currentUser = userSignUpService.loadUserByEmail(userDetails.getUsername());
 
         if (encoder.matches(passwordDTO.getNew_password(), currentUser.getPassword())) {
-            throw new CustomException("The passwords must be different!");
+            throw new BadRequestException("The passwords must be different!");
         }
         currentUser.setPassword(passwordDTO.getNew_password());
         validatePasswordSecurity(currentUser.getPassword());

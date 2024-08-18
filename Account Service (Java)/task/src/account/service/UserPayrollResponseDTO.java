@@ -108,7 +108,7 @@ public class UserPayrollResponseDTO {
                 this.salary = String.format("%s dollar(s) %d cent(s)",dollars,cents);
                 return this;
             }
-            throw new CustomException("Salary must be 0 or above!");
+            throw new BadRequestException("Salary must be 0 or above!");
 
 
         }

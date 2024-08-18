@@ -7,8 +7,6 @@ import account.repository.RoleRepository;
 import account.repository.UserSignUpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -51,7 +49,7 @@ public class UserSignUpService {
         } catch (DataIntegrityViolationException e) {
             System.out.println(e.getMessage());
 
-            throw new CustomException("User exist!");
+            throw new BadRequestException("User exist!");
         }
 
 

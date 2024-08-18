@@ -21,19 +21,22 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         System.out.println("hier");
 
-        //todo: empty database and retest calling getPayment with admin and user!
+
         http
                 .httpBasic(Customizer.withDefaults())
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(restAuthenticationEntryPoint)) // Handle auth errors
                 .csrf(csrf -> csrf.disable()) // For Postman
                 .headers(headers -> headers.frameOptions().disable()) // For the H2 console
-                .authorizeHttpRequests(auth -> auth  // manage access
+                .authorizeHttpRequests(auth -> auth
+                                .requestMatchers(antMatcher("/h2-console/**")).permitAll()// manage access
                                 .requestMatchers(antMatcher(HttpMethod.POST, "/api/auth/signup")).permitAll()
                                 .requestMatchers(antMatcher(HttpMethod.POST, "/actuator/shutdown")).permitAll()
-                                .requestMatchers(antMatcher(HttpMethod.POST, "/api/acct/payments")).permitAll()
-                                .requestMatchers(antMatcher(HttpMethod.PUT, "/api/acct/payments")).permitAll()
-                                .requestMatchers(antMatcher("/h2-console/**")).permitAll()
-                                .requestMatchers(antMatcher("/api/empl/payment")).hasAnyAuthority("ROLE_USER") // Admin-only endpoints
+                                .requestMatchers(antMatcher(HttpMethod.POST, "/api/acct/payments")).hasAuthority("ROLE_ACCOUNTANT")
+                                .requestMatchers(antMatcher(HttpMethod.PUT, "/api/acct/payments")).hasAuthority("ROLE_ACCOUNTANT")
+                                .requestMatchers(antMatcher("/api/empl/payment")).hasAnyAuthority("ROLE_USER","ROLE_ACCOUNTANT")
+                                .requestMatchers(antMatcher("/api/admin/user")).hasAuthority("ROLE_ADMINISTRATOR")
+                                .requestMatchers(antMatcher(HttpMethod.DELETE,"/api/admin/user")).hasAuthority("ROLE_ADMINISTRATOR")
+                                .requestMatchers(antMatcher(HttpMethod.PUT,"/api/admin/user/role")).hasAuthority("ROLE_ADMINISTRATOR")// Admin-only endpoints
                                 .anyRequest().authenticated()
 
 
