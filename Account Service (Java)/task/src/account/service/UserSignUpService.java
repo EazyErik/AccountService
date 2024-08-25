@@ -1,6 +1,7 @@
 package account.service;
 
 import account.config.PasswordEncoder;
+import account.controller.UserDTO;
 import account.data.Role;
 import account.data.UserSignUp;
 import account.repository.RoleRepository;
@@ -10,6 +11,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserSignUpService {
@@ -29,7 +31,7 @@ public class UserSignUpService {
 //        encoder = new BCryptPasswordEncoder(13);
 //    }
 
-    public UserSignUpDTO save(UserSignUp userSignUp){
+    public UserDTO save(UserSignUp userSignUp){
         UserSignUp savedUser;
         try {
             if(userSignUpRepository.count() == 0){
@@ -53,9 +55,13 @@ public class UserSignUpService {
         }
 
 
-        return new UserSignUpDTO(
-                savedUser.getName(), savedUser.getLastname(),
-                savedUser.getEmail(),savedUser.getId());
+        return new UserDTO(
+                savedUser.getId(),
+                savedUser.getName(),
+                savedUser.getLastname(),
+                savedUser.getEmail(),
+                savedUser.getUserRoles().stream()
+                        .map(role -> role.getName()).collect(Collectors.toSet()));
     }
 
     public void changePassword(UserSignUp userSignUp){

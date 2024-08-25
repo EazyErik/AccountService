@@ -9,35 +9,35 @@
 4[0m[0;34m =========|_|==============|___/=/_/_/_/
 6[0m[0;34m :: Spring Boot ::                (v3.0.2)
 [0m[0;34m
-§[0m[0;34m2024-08-11T12:05:06.273+02:00  INFO 6858 --- [    Test worker] account.AccountServiceApplication        : Starting AccountServiceApplication using Java 17.0.10 with PID 6858 (started by erikbusch in /Users/erikbusch/IdeaProjects/Account Service (Java)/Account Service (Java)/task)
-π[0m[0;34m2024-08-11T12:05:06.275+02:00  INFO 6858 --- [    Test worker] account.AccountServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-±[0m[0;34m2024-08-11T12:05:06.572+02:00  INFO 6858 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-À[0m[0;34m2024-08-11T12:05:06.596+02:00  INFO 6858 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
-£[0m[0;34m2024-08-11T12:05:07.020+02:00  INFO 6858 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
-è[0m[0;34m2024-08-11T12:05:07.026+02:00  INFO 6858 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-•[0m[0;34m2024-08-11T12:05:07.026+02:00  INFO 6858 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
-®[0m[0;34m2024-08-11T12:05:07.073+02:00  INFO 6858 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-¥[0m[0;34m2024-08-11T12:05:07.074+02:00  INFO 6858 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 778 ms
-ê[0m[0;34m2024-08-11T12:05:07.115+02:00  INFO 6858 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-√[0m[0;34m2024-08-11T12:05:07.221+02:00  INFO 6858 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:../service_db user=SA
-ï[0m[0;34m2024-08-11T12:05:07.222+02:00  INFO 6858 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-œ[0m[0;34m2024-08-11T12:05:07.227+02:00  INFO 6858 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../service_db'
-Ø[0m[0;34m2024-08-11T12:05:07.298+02:00  INFO 6858 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-ß[0m[0;34m2024-08-11T12:05:07.327+02:00  INFO 6858 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-˙[0m[0;34m2024-08-11T12:05:07.408+02:00  WARN 6858 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-Ø[0m[0;34m2024-08-11T12:05:07.466+02:00  INFO 6858 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-È[0m[0;34m2024-08-11T12:05:07.955+02:00  INFO 6858 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-π[0m[0;34m2024-08-11T12:05:07.960+02:00  INFO 6858 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+¶[0m[0;34m2024-08-25T10:56:26.481+02:00  INFO 62595 --- [    Test worker] account.AccountServiceApplication        : Starting AccountServiceApplication using Java 17.0.10 with PID 62595 (started by erikbusch in /Users/erikbusch/IdeaProjects/Account Service (Java)/Account Service (Java)/task)
+∫[0m[0;34m2024-08-25T10:56:26.484+02:00  INFO 62595 --- [    Test worker] account.AccountServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+≤[0m[0;34m2024-08-25T10:56:26.835+02:00  INFO 62595 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Ã[0m[0;34m2024-08-25T10:56:26.860+02:00  INFO 62595 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
+§[0m[0;34m2024-08-25T10:56:27.357+02:00  INFO 62595 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
+ê[0m[0;34m2024-08-25T10:56:27.363+02:00  INFO 62595 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+¶[0m[0;34m2024-08-25T10:56:27.363+02:00  INFO 62595 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+©[0m[0;34m2024-08-25T10:56:27.422+02:00  INFO 62595 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+µ[0m[0;34m2024-08-25T10:56:27.423+02:00  INFO 62595 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 909 ms
+ë[0m[0;34m2024-08-25T10:56:27.479+02:00  INFO 62595 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+ƒ[0m[0;34m2024-08-25T10:56:27.598+02:00  INFO 62595 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:../service_db user=SA
+ñ[0m[0;34m2024-08-25T10:56:27.599+02:00  INFO 62595 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+–[0m[0;34m2024-08-25T10:56:27.606+02:00  INFO 62595 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../service_db'
+∞[0m[0;34m2024-08-25T10:56:27.687+02:00  INFO 62595 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+®[0m[0;34m2024-08-25T10:56:27.724+02:00  INFO 62595 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+˚[0m[0;34m2024-08-25T10:56:27.825+02:00  WARN 62595 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+∞[0m[0;34m2024-08-25T10:56:27.892+02:00  INFO 62595 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Í[0m[0;34m2024-08-25T10:56:28.438+02:00  INFO 62595 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+∫[0m[0;34m2024-08-25T10:56:28.443+02:00  INFO 62595 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 '[0m[0;34mConstructor UserDetailsImpl
-≠[0m[0;34m2024-08-11T12:05:08.158+02:00  WARN 6858 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Æ[0m[0;34m2024-08-25T10:56:28.685+02:00  WARN 62595 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 [0m[0;34mhier
-Â[0m[0;34m2024-08-11T12:05:08.224+02:00  INFO 6858 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4bf6bc2d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c914364, org.springframework.security.web.context.SecurityContextHolderFilter@5e609b42, org.springframework.security.web.header.HeaderWriterFilter@d0456ad, org.springframework.security.web.authentication.logout.LogoutFilter@55d35f7a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6df605f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@24673720, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ed4c822, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25c756f0, org.springframework.security.web.session.SessionManagementFilter@622c658d, org.springframework.security.web.access.ExceptionTranslationFilter@29ceefb3, org.springframework.security.web.access.intercept.AuthorizationFilter@74727e41]
-´[0m[0;34m2024-08-11T12:05:08.470+02:00  INFO 6858 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-≤[0m[0;34m2024-08-11T12:05:08.507+02:00  INFO 6858 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
-ƒ[0m[0;34m2024-08-11T12:05:08.516+02:00  INFO 6858 --- [    Test worker] account.AccountServiceApplication        : Started AccountServiceApplication in 2.411 seconds (process running for 2.974)
-´[0;34m2024-08-11T12:05:08.673+02:00  INFO 6858 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-û[0m[0;34m2024-08-11T12:05:08.674+02:00  INFO 6858 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-ñ[0m[0;34m2024-08-11T12:05:08.674+02:00  INFO 6858 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Ê[0m[0;34m2024-08-25T10:56:28.764+02:00  INFO 62595 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@487f025, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ef570be, org.springframework.security.web.context.SecurityContextHolderFilter@2be83e7e, org.springframework.security.web.header.HeaderWriterFilter@756b703d, org.springframework.security.web.authentication.logout.LogoutFilter@6e5106fc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@48900d4a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@441c2d2a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@359f3401, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39329d81, org.springframework.security.web.session.SessionManagementFilter@484dde7d, org.springframework.security.web.access.ExceptionTranslationFilter@c725dfa, org.springframework.security.web.access.intercept.AuthorizationFilter@1e8c9083]
+¨[0m[0;34m2024-08-25T10:56:29.054+02:00  INFO 62595 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+≥[0m[0;34m2024-08-25T10:56:29.099+02:00  INFO 62595 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
+≈[0m[0;34m2024-08-25T10:56:29.109+02:00  INFO 62595 --- [    Test worker] account.AccountServiceApplication        : Started AccountServiceApplication in 2.818 seconds (process running for 3.437)
+¨[0;34m2024-08-25T10:56:29.291+02:00  INFO 62595 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+ü[0m[0;34m2024-08-25T10:56:29.291+02:00  INFO 62595 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+ó[0m[0;34m2024-08-25T10:56:29.292+02:00  INFO 62595 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 [0m[1;31m
 Start test 2[0m
 [1;31m
@@ -60,3 +60,105 @@
 Start test 11[0m
 [1;31m
 Start test 12[0m
+[1;31m
+Start test 13[0m
+[1;31m
+Start test 14[0m
+[1;31m
+Start test 15[0m
+[1;31m
+Start test 16[0m
+î[0;34m2024-08-25T10:56:33.619+02:00  WARN 62595 --- [io-28852-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+´[0m[0;34m2024-08-25T10:56:33.619+02:00 ERROR 62595 --- [io-28852-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )"; SQL statement:
+m[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
+∏[0m[0;34m2024-08-25T10:56:33.620+02:00  INFO 62595 --- [io-28852-exec-7] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+Õ[0m[0;34mcould not execute statement; SQL [n/a]; constraint ["PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )"; SQL statement:
+n[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]]
+[1;31m
+Start test 17[0m
+î[0;34m2024-08-25T10:56:34.412+02:00  WARN 62595 --- [io-28852-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+´[0m[0;34m2024-08-25T10:56:34.412+02:00 ERROR 62595 --- [io-28852-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )"; SQL statement:
+m[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
+∏[0m[0;34m2024-08-25T10:56:34.412+02:00  INFO 62595 --- [io-28852-exec-8] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+Õ[0m[0;34mcould not execute statement; SQL [n/a]; constraint ["PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )"; SQL statement:
+n[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]]
+[1;31m
+Start test 18[0m
+î[0;34m2024-08-25T10:56:35.199+02:00  WARN 62595 --- [io-28852-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+´[0m[0;34m2024-08-25T10:56:35.199+02:00 ERROR 62595 --- [io-28852-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )"; SQL statement:
+m[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]
+∏[0m[0;34m2024-08-25T10:56:35.199+02:00  INFO 62595 --- [io-28852-exec-2] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+Õ[0m[0;34mcould not execute statement; SQL [n/a]; constraint ["PUBLIC.UK_H25F5TLSYUPBTNXV8LVFHMDVS_INDEX_5 ON PUBLIC.USER_SIGN_UP(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'johndoe@acme.com' )"; SQL statement:
+n[0m[0;34minsert into user_sign_up (email, lastname, name, password, id) values (?, ?, ?, ?, ?) [23505-214]]
+[1;31m
+Start test 19[0m
+[0;34mRole:ROLE_USER
+[0m[0;34mtest[ROLE_USER]
+[0m[0;34mauth[ROLE_USER]
+([0m[0;34m[account.data.Role@4c503585]
+[0m[0;34m[]
+[1;31m
+Start test 20[0m
+[0;34mRole:ROLE_USER
+[0m[0;34mtest[ROLE_USER]
+[0m[0;34mauth[ROLE_USER]
+([0m[0;34m[account.data.Role@1acf847c]
+[0m[0;34m[]
+[1;31m
+Start test 21[0m
+[0;34mRole:ROLE_USER
+[0m[0;34mtest[ROLE_USER]
+[1;31m
+Start test 22[0m
+[1;31m
+Start test 23[0m
+[1;31m
+Start test 24[0m
+[1;31m
+Start test 25[0m
+[1;31m
+Start test 26[0m
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+[1;31m
+Start test 27[0m
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+[1;31m
+Start test 28[0m
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+[1;31m
+Start test 29[0m
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+[1;31m
+Start test 30[0m
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]
+[1;31m
+Start test 31[0m
+#[0m[0;34mRole:ROLE_ADMINISTRATOR
+$[0m[0;34mtest[ROLE_ADMINISTRATOR]

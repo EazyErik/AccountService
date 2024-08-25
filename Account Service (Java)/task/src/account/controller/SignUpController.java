@@ -23,7 +23,7 @@ public class SignUpController {
     BCryptPasswordEncoder encoder;
 
     @PostMapping("auth/signup")
-    public ResponseEntity<UserSignUpDTO> signup(@RequestBody UserSignUp userSignUp) {
+    public ResponseEntity<UserDTO> signup(@RequestBody UserSignUp userSignUp) {
         checkValidUser(userSignUp);
         validatePasswordSecurity(userSignUp.getPassword());
         userSignUp.setEmail(userSignUp.getEmail().toLowerCase());

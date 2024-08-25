@@ -1,8 +1,11 @@
 package account.service;
 
 import account.controller.DeleteUserDTO;
+import account.controller.UpdateRoleDTO;
 import account.controller.UserDTO;
+import account.data.Role;
 import account.data.UserSignUp;
+import account.repository.RoleRepository;
 import account.repository.UserSignUpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,9 @@ public class AdminService {
 
     @Autowired
     UserSignUpRepository userSignUpRepository;
+
+    @Autowired
+    RoleRepository roleRepository;
 
     public ArrayList<UserDTO> getUsers() {
         List<UserSignUp> all = userSignUpRepository.findAll();
@@ -38,5 +44,44 @@ public class AdminService {
                     userSignUpRepository.delete(byEmailIgnoreCase);
                     return new DeleteUserDTO(byEmailIgnoreCase.getEmail(),"Deleted successfully!");
                 }
+    }
+
+    public UserDTO updateRole(UpdateRoleDTO updateRoleDTO){
+        UserSignUp currentUser = userSignUpRepository.findByEmailIgnoreCase(updateRoleDTO.getUser());
+        String dataBaseRole = "ROLE_" + updateRoleDTO.getRole();
+
+        switch (updateRoleDTO.getOperation()){
+            case "GRANT":
+                if(!currentUser.getUserRoles()
+                        .stream().anyMatch(role -> role.getName().equalsIgnoreCase(dataBaseRole))){
+                    System.out.println("2.");
+                    Set<Role> userRoles = currentUser.getUserRoles();
+                    userRoles.add(roleRepository.findByName(dataBaseRole));
+
+                    currentUser.setUserRoles(userRoles);
+                    userSignUpRepository.save(currentUser);
+                }
+                break;
+            case "REMOVE":
+                if(currentUser.getUserRoles()
+                        .stream().anyMatch(role -> role.getName().equalsIgnoreCase(dataBaseRole))){
+                    Set<Role> userRoles = currentUser.getUserRoles().stream()
+                            .filter(role -> !role.getName().equalsIgnoreCase(dataBaseRole)).collect(Collectors.toSet());
+                    currentUser.setUserRoles(userRoles);
+                    userSignUpRepository.save(currentUser);
+                }
+                break;
+        }
+
+
+
+
+        return new UserDTO(
+                currentUser.getId(),
+                currentUser.getName(),
+                currentUser.getLastname(),
+                currentUser.getEmail(),
+                currentUser.getUserRoles().stream()
+                        .map(role -> role.getName()).collect(Collectors.toSet()));
     }
 }

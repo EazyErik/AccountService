@@ -96,20 +96,24 @@ files:
   - name: src/account/service/NotFoundException.java
     visible: true
     learner_created: true
+  - name: src/account/controller/UpdateRoleDTO.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/16605#comment
 status: Failed
 feedback:
   message: |-
-    Wrong answer in test #12
+    Wrong answer in test #31
 
-    The JSON object should contain a key &quot;roles&quot;
-
-    Full JSON:
+    GET /api/admin/user/ should respond with status code 200, responded: 404
+    Password must be changed!
+    Response body:
     {
-      &quot;id&quot;: 1,
-      &quot;name&quot;: &quot;John&quot;,
-      &quot;lastname&quot;: &quot;Doe&quot;,
-      &quot;email&quot;: &quot;johndoe@acme.com&quot;
+      &quot;timestamp&quot; : &quot;2024-08-25T08:57:05.711+00:00&quot;,
+      &quot;status&quot; : 404,
+      &quot;error&quot; : &quot;Not Found&quot;,
+      &quot;message&quot; : &quot;No message available&quot;,
+      &quot;path&quot; : &quot;/api/admin/user/&quot;
     }
-  time: "Sun, 11 Aug 2024 10:05:09 UTC"
+  time: "Sun, 25 Aug 2024 08:57:06 UTC"
 record: 5
