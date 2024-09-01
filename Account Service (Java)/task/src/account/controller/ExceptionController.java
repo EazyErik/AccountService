@@ -27,10 +27,12 @@ public class ExceptionController {
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<CustomErrorMessage> handleNotFoundException(NotFoundException ex, WebRequest request) {
+        System.out.println("test");
+        System.out.println(ex.toString());
         CustomErrorMessage body = new CustomErrorMessage(
                 LocalDateTime.now().toString(),
                 HttpStatus.NOT_FOUND.value(),
-                "Not found",
+                "Not Found",
                 ex.getMessage(),
                 request.getDescription(false).substring(4));
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);

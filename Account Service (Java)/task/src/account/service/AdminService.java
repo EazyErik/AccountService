@@ -23,7 +23,9 @@ public class AdminService {
     RoleRepository roleRepository;
 
     public ArrayList<UserDTO> getUsers() {
+        System.out.println("2");
         List<UserSignUp> all = userSignUpRepository.findAll();
+        System.out.println("3");
         Collections.sort(all, Comparator.comparingLong(UserSignUp::getId));
         return all.stream()
                 .map(user -> new UserDTO(
@@ -68,6 +70,9 @@ public class AdminService {
                     Set<Role> userRoles = currentUser.getUserRoles().stream()
                             .filter(role -> !role.getName().equalsIgnoreCase(dataBaseRole)).collect(Collectors.toSet());
                     currentUser.setUserRoles(userRoles);
+                    if(userRoles.isEmpty()){
+                        throw new BadRequestException("The user must have at least one role!");
+                    }
                     userSignUpRepository.save(currentUser);
                 }
                 break;

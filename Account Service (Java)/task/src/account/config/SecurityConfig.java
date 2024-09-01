@@ -35,7 +35,7 @@ public class SecurityConfig {
                                 .requestMatchers(antMatcher(HttpMethod.PUT, "/api/acct/payments")).hasAuthority("ROLE_ACCOUNTANT")
                                 .requestMatchers(antMatcher("/api/empl/payment")).hasAnyAuthority("ROLE_USER","ROLE_ACCOUNTANT")
                                 .requestMatchers(antMatcher("/api/admin/user")).hasAuthority("ROLE_ADMINISTRATOR")
-                                .requestMatchers(antMatcher(HttpMethod.DELETE,"/api/admin/user")).hasAuthority("ROLE_ADMINISTRATOR")
+                                .requestMatchers(antMatcher(HttpMethod.DELETE,"/api/admin/user/*")).hasAuthority("ROLE_ADMINISTRATOR")
                                 .requestMatchers(antMatcher(HttpMethod.PUT,"/api/admin/user/role")).hasAuthority("ROLE_ADMINISTRATOR")// Admin-only endpoints
                                 .anyRequest().authenticated()
 
