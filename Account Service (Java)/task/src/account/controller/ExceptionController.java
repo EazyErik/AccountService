@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.LocalDateTime;
@@ -36,5 +37,29 @@ public class ExceptionController {
                 ex.getMessage(),
                 request.getDescription(false).substring(4));
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(HttpClientErrorException.Forbidden.class)
+    public ResponseEntity<CustomErrorMessage> handleAccessDeniedException(HttpClientErrorException.Forbidden ex, WebRequest request) {
+        System.out.println("forbidden: ");
+        System.out.println(ex.toString());
+        CustomErrorMessage body = new CustomErrorMessage(
+                LocalDateTime.now().toString(),
+                HttpStatus.FORBIDDEN.value(),
+                "Forbidden",
+                "Access Denied!",
+                request.getDescription(false).substring(4));
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<CustomErrorMessage> handleBadRequestException(Exception ex, WebRequest request) {
+        System.out.println("exceptionHandler: ");
+        CustomErrorMessage body = new CustomErrorMessage(
+                LocalDateTime.now().toString(),
+                HttpStatus.BAD_REQUEST.value(),
+                "Bad Request",
+                ex.getMessage(),
+                request.getDescription(false).substring(4));
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 }

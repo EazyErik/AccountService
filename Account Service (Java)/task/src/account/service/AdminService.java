@@ -51,6 +51,9 @@ public class AdminService {
     public UserDTO updateRole(UpdateRoleDTO updateRoleDTO){
         UserSignUp currentUser = userSignUpRepository.findByEmailIgnoreCase(updateRoleDTO.getUser());
         String dataBaseRole = "ROLE_" + updateRoleDTO.getRole();
+       if(currentUser == null){
+           throw new NotFoundException("User not found!");
+        }
 
         switch (updateRoleDTO.getOperation()){
             case "GRANT":
@@ -65,8 +68,11 @@ public class AdminService {
                 }
                 break;
             case "REMOVE":
+                System.out.println("userToUpdateRoles:");
+                currentUser.getUserRoles().stream().forEach(role -> System.out.println(role.getName()));
                 if(currentUser.getUserRoles()
                         .stream().anyMatch(role -> role.getName().equalsIgnoreCase(dataBaseRole))){
+
                     Set<Role> userRoles = currentUser.getUserRoles().stream()
                             .filter(role -> !role.getName().equalsIgnoreCase(dataBaseRole)).collect(Collectors.toSet());
                     currentUser.setUserRoles(userRoles);
@@ -74,6 +80,8 @@ public class AdminService {
                         throw new BadRequestException("The user must have at least one role!");
                     }
                     userSignUpRepository.save(currentUser);
+                }else{
+                    throw new BadRequestException("The user does not have a role!");
                 }
                 break;
         }

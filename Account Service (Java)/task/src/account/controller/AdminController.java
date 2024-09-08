@@ -23,13 +23,7 @@ public class AdminController {
 
 
     @GetMapping("user/")
-    // TODO: 25.08.24 check why not found {
-    //  "timestamp" : "2024-08-25T08:57:05.711+00:00",
-    //  "status" : 404,
-    //  "error" : "Not Found",
-    //  "message" : "No message available",
-    //  "path" : "/api/admin/user/"
-    //}
+
     public ResponseEntity<ArrayList<UserDTO>> getUsers() {
         System.out.println("1");
         return new ResponseEntity(adminService.getUsers(), HttpStatus.OK);
@@ -62,15 +56,16 @@ public class AdminController {
         System.out.println("updated user: " + updateRoleDTO.getUser() );
         System.out.println("role: " + updateRoleDTO.getRole());
         System.out.println("operation: " +updateRoleDTO.getOperation());
+        boolean isUpdatingAdmin = userDetails.getUsername().equalsIgnoreCase(updateRoleDTO.getUser());
         if (updateRoleDTO.getRole().isBlank() || updateRoleDTO.getRole() == null || !roles.contains(updateRoleDTO.getRole())) {
             System.out.println("first if");
             throw new NotFoundException("Role not found!");
 
-        } else if (updateRoleDTO.getRole().equalsIgnoreCase("ADMINISTRATOR")) {
+        } else if (!isUpdatingAdmin && updateRoleDTO.getRole().equalsIgnoreCase("ADMINISTRATOR")) {
             System.out.println("2nd if");
             throw new BadRequestException("The user cannot combine administrative and business roles!");
 
-        } else if (userDetails.getUsername().equalsIgnoreCase(updateRoleDTO.getUser())) {
+        } else if (isUpdatingAdmin) {
             System.out.println("3rd if");
             if(businessRoles.contains(updateRoleDTO.getRole()) && updateRoleDTO.getOperation().equalsIgnoreCase("GRANT")){
                 System.out.println("4th if");
