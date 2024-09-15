@@ -1,8 +1,7 @@
 package account.controller;
 
-import account.service.AdminService;
-import account.service.BadRequestException;
-import account.service.NotFoundException;
+import account.data.Operation;
+import account.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +19,9 @@ public class AdminController {
 
     @Autowired
     AdminService adminService;
+
+    @Autowired
+    UserSignUpService userSignUpService;
 
 
     @GetMapping("user/")
@@ -49,14 +51,12 @@ public class AdminController {
 
     @PutMapping("user/role")
     public ResponseEntity<UserDTO> updateRole(@AuthenticationPrincipal UserDetails userDetails, @RequestBody UpdateRoleDTO updateRoleDTO) {
-        //todo: anpassen der error messages nicht bezogen auf admin darf man keine Rolle entziehen, je nachdem bekommt man eine unterschiedliche Error message
-        List roles = new ArrayList(List.of("ADMINISTRATOR", "ACCOUNTANT", "USER"));
-        List businessRoles = new ArrayList(List.of("ACCOUNTANT", "USER"));
-        System.out.println("Admin: " + userDetails.getUsername());
-        System.out.println("updated user: " + updateRoleDTO.getUser() );
-        System.out.println("role: " + updateRoleDTO.getRole());
-        System.out.println("operation: " +updateRoleDTO.getOperation());
+
+        List roles = new ArrayList(List.of("ADMINISTRATOR", "ACCOUNTANT", "USER", "AUDITOR"));
+        List businessRoles = new ArrayList(List.of("ACCOUNTANT", "USER", "AUDITOR"));
+
         boolean isUpdatingAdmin = userDetails.getUsername().equalsIgnoreCase(updateRoleDTO.getUser());
+        boolean isBusinessRole = businessRoles.contains(updateRoleDTO.getRole());
         if (updateRoleDTO.getRole().isBlank() || updateRoleDTO.getRole() == null || !roles.contains(updateRoleDTO.getRole())) {
             System.out.println("first if");
             throw new NotFoundException("Role not found!");
@@ -67,21 +67,35 @@ public class AdminController {
 
         } else if (isUpdatingAdmin) {
             System.out.println("3rd if");
-            if(businessRoles.contains(updateRoleDTO.getRole()) && updateRoleDTO.getOperation().equalsIgnoreCase("GRANT")){
+            if (isBusinessRole && updateRoleDTO.getOperation().equalsIgnoreCase("GRANT")) {
                 System.out.println("4th if");
                 throw new BadRequestException("The user cannot combine administrative and business roles!");
-            }
-           else if(updateRoleDTO.getRole().equalsIgnoreCase("ADMINISTRATOR") && updateRoleDTO.getOperation().equalsIgnoreCase("REMOVE")){
+            } else if (updateRoleDTO.getRole().equalsIgnoreCase("ADMINISTRATOR") && updateRoleDTO.getOperation().equalsIgnoreCase("REMOVE")) {
                 System.out.println("5th if");
                 throw new BadRequestException("Can't remove ADMINISTRATOR role!");
             }
         }
 
 
-
         return new ResponseEntity<>(adminService.updateRole(updateRoleDTO), HttpStatus.OK);
 
     }
 
+    @PutMapping("user/access")
+    public ResponseEntity<UserAccessResponseDTO> updateAccess(@AuthenticationPrincipal UserDetails userDetails,@RequestBody UserAccessDTO userAccessDTO) {
+
+        boolean isUpdatingAdmin = userDetails.getUsername().equalsIgnoreCase(userAccessDTO.getUser());
+
+        if(!(userAccessDTO.getOperation().equals(Operation.LOCK) ||
+                userAccessDTO.getOperation().equals(Operation.UNLOCK))){
+            throw new BadRequestException("");
+        }
+        if(isUpdatingAdmin && userAccessDTO.getOperation().equals(Operation.LOCK)){
+            throw new BadRequestException("Can't lock the ADMINISTRATOR!");
+        }
+        userSignUpService.updateAccess(userAccessDTO);
+        return null;
+
+    }
 
 }

@@ -2,6 +2,7 @@ package account.service;
 
 import account.config.PasswordEncoder;
 import account.controller.UserDTO;
+import account.data.Operation;
 import account.data.Role;
 import account.data.UserSignUp;
 import account.repository.RoleRepository;
@@ -62,6 +63,24 @@ public class UserSignUpService {
                 savedUser.getEmail(),
                 savedUser.getUserRoles().stream()
                         .map(role -> role.getName()).collect(Collectors.toSet()));
+    }
+    //todo:implement that inactive user is blocked!
+    public UserAccessResponseDTO updateAccess(UserAccessDTO userAccessDTO){
+        UserSignUp currentUser = userSignUpRepository.findByEmailIgnoreCase(userAccessDTO.getUser());
+        if(currentUser != null){
+            if(userAccessDTO.getOperation().equals(Operation.LOCK)){
+                currentUser.setActive(false);
+                userSignUpRepository.save(currentUser);
+                return new UserAccessResponseDTO("User " + currentUser.getEmail() + " locked!");
+            }else if(userAccessDTO.getOperation().equals(Operation.UNLOCK)){
+                currentUser.setActive(true);
+                return new UserAccessResponseDTO("User " + currentUser.getEmail() + " unlocked!");
+            }
+        }
+        throw new NotFoundException("Can't find user!");
+
+
+
     }
 
     public void changePassword(UserSignUp userSignUp){

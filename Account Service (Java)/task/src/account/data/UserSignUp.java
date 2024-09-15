@@ -20,6 +20,8 @@ public class UserSignUp {
     private String email;
     private String password;
 
+    private boolean isActive;
+
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
@@ -40,6 +42,14 @@ public class UserSignUp {
     }
 
     public UserSignUp() {
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     public Long getId() {

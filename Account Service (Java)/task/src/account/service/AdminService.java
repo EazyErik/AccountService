@@ -68,8 +68,7 @@ public class AdminService {
                 }
                 break;
             case "REMOVE":
-                System.out.println("userToUpdateRoles:");
-                currentUser.getUserRoles().stream().forEach(role -> System.out.println(role.getName()));
+
                 if(currentUser.getUserRoles()
                         .stream().anyMatch(role -> role.getName().equalsIgnoreCase(dataBaseRole))){
 
